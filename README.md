@@ -1,4 +1,4 @@
-#Japanese Flash Cards
+# Japanese Flash Cards
 
 Beer-ware by Steven Paytosh
 
@@ -15,6 +15,8 @@ For the time being, notes must be as questions then answer.
 Once you have loaded a CSV, hitting the "Next" button will bring up a new questions. Hitting "Next" again will answer the question
 
 Questions will be presented randomly, with a non-random option being in the works.
+
+The Master/Trunk branch of this repo is called senpai, for obvious reasons.
 
 **DOWNLOAD AND RUN**
 

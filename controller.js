@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-var questions=[];
-var current_question="";
-var current_answer="";
-
-$(document).ready(function(){
-=======
 var QuestionViewModel = function()
 {
 	QuestionViewModel.english = ko.observable('');
@@ -40,14 +33,14 @@ var QuestionViewModel = function()
   QuestionViewModel.EnablePhrases = ko.observable(false);
   QuestionViewModel.EnableFileLoadedQuestions = ko.observable(true);
   
-  QuestionViewModel.chkHiragana = ko.observable(true);
-  QuestionViewModel.chkHiraganaDakuten = ko.observable(true);
-  QuestionViewModel.chkHiraganaHandakuten = ko.observable(true);
+  QuestionViewModel.chkHiragana = ko.observable(false);
+  QuestionViewModel.chkHiraganaDakuten = ko.observable(false);
+  QuestionViewModel.chkHiraganaHandakuten = ko.observable(false);
   QuestionViewModel.chkKatakana = ko.observable(false);
   QuestionViewModel.chkKatakanaDakuten = ko.observable(false);
   QuestionViewModel.chkKatakanaHandakuten = ko.observable(false);
   QuestionViewModel.chkKanji = ko.observable(false);
-  QuestionViewModel.chkHiraganaNumbers = ko.observable(true);
+  QuestionViewModel.chkHiraganaNumbers = ko.observable(false);
   QuestionViewModel.chkWords = ko.observable(false);
   QuestionViewModel.chkPhrases = ko.observable(false);
   QuestionViewModel.chkCategory = ko.observable(true);
@@ -59,16 +52,8 @@ var QuestionViewModel = function()
   QuestionViewModel.chkFileLoadedQuestions = ko.observable(true);
   
   QuestionViewModel.savedOptions = [];
->>>>>>> Stashed changes
 	
-});
-
-function PushQuestion( question )
-{
-	//pushes a new questions object
-	questions.push(question);
-
-}
+};
 
 
 //=========================================
@@ -77,14 +62,6 @@ function PushQuestion( question )
 
 function checkBoxChangePreloadedQuestion()
 {
-<<<<<<< Updated upstream
-	//gets a random question
-
-	var length=questions.length;
-	var q = questions[Math.floor( Math.random()*length ) ];
-	current_question=q.question;
-	current_answer=q.answer;
-=======
     var currentQuestion = 
       {
         japanese: QuestionViewModel.japanese(),
@@ -111,22 +88,11 @@ function checkBoxChangePreloadedQuestion()
 
 function checkBoxChangeOptions(category)
 {
-    process();
     checkBoxChangeDisplay();
->>>>>>> Stashed changes
 }
 
 function checkBoxChangeDisplay()
 {
-<<<<<<< Updated upstream
-	clearOutput();
-	var output=""
-	GetRandomQuestion();
-
-	output="Q: "+ current_question+"<p>";
-	print(output);
-	
-=======
  QuestionViewModel.DisplayCategory(QuestionViewModel.chkCategory());
  SetRomanjiVisibility();
  QuestionViewModel.DisplayQuestionCounter(!QuestionViewModel.chkRepeatQuestions());
@@ -321,17 +287,10 @@ function clearOutput()
     QuestionViewModel.DisplayCard(false);
     QuestionViewModel.DisplayQuestionCounter(false);
     QuestionViewModel.questions = ko.observableArray();
->>>>>>> Stashed changes
 }
 
-function GetAnswer()
+function AnswerQuestion()
 {
-<<<<<<< Updated upstream
-	clearOutput();
-	var output="Q: "+ current_question+"<p>A: "+current_answer+"<p>";
-	print(output);
-	
-=======
 		QuestionViewModel.DisplayEnglish(true);
 		QuestionViewModel.State('Answered');
 }
@@ -359,22 +318,21 @@ function GetNext()
   
    QuestionViewModel.DisplayCategory(QuestionViewModel.chkCategory());
    SetRomanjiVisibility();
->>>>>>> Stashed changes
 }
 
 function SetRomanjiVisibility()
 {
-<<<<<<< Updated upstream
-	
-	questions=[];
-}
-=======
   if(QuestionViewModel.chkRomanji())
   {
      QuestionViewModel.DisplayRomanjiQ
      (QuestionViewModel.chkJapaneseToEnglish());
      QuestionViewModel.DisplayRomanjiA
      (!QuestionViewModel.chkJapaneseToEnglish());
+  }
+  else
+  {
+     QuestionViewModel.DisplayRomanjiQ(false);
+     QuestionViewModel.DisplayRomanjiA(false);
   }
 }
 
@@ -663,15 +621,9 @@ function LoadStandardQuestions()
     if(QuestionViewModel.chkWords()){addWords();}
     if(QuestionViewModel.chkPhrases()){addPhrases();}
 };
->>>>>>> Stashed changes
 
 function addQuestion(j,r,e,category='')
 {
-<<<<<<< Updated upstream
-	//method that is called by pushing the run button
-	run_file(doc,0,doc.length);
-	
-=======
   var question=
   {
     japanese: j,
@@ -681,7 +633,6 @@ function addQuestion(j,r,e,category='')
   };
   
   QuestionViewModel.questions.push(question);
->>>>>>> Stashed changes
 }
 
 //=============================================
@@ -693,38 +644,6 @@ function addQuestion(j,r,e,category='')
 //=====================================
 function addNumbers()
 {
-<<<<<<< Updated upstream
-	ClearQuestions();
-	
-	for(var i=start;i<end;i++)
-	{
-		doc[i]=doc[i].trim();
-		var args=doc[i].split(","); //split up the line on commas
-		
-		var ans="";
-		
-		for(var j=1; j<args.length; j++)
-		{
-			ans+=args[j];
-		}
-		
-		var question=
-		{
-			answer:ans,
-			question:args[0]
-			
-		};
-		
-		if(question.answer!=null && question.question!=null)
-		{
-			PushQuestion(question);
-		}
-		
-	}
-	
-	print("file loaded");
-}
-=======
   addQuestion("いち","ichi","one","Number (Hiragana)");
   addQuestion("に","ni","two","Number (Hiragana)");
   addQuestion("さん","san","three","Number (Hiragana)");
@@ -953,4 +872,3 @@ $(document).ready(function(){
    process();
                   
 });
->>>>>>> Stashed changes
