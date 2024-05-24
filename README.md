@@ -28,4 +28,3 @@ A CSV replicates a data table (think excel or a similar spread sheet application
 
 To write a CSV, you create the data one row at a time with each row separated by a comma ",". Each row is separated by a new-line (the same as hitting enter).
 
-# JapaneseFlashCards

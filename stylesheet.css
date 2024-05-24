@@ -8,16 +8,6 @@
 
 .information
 {
-<<<<<<< Updated upstream
-	margin: 0px 0px 100px 20vw;
-	background-color:white;
-	color:black;
-	width: 50vw;
-	text-align:left;
-	padding:10px 0px 10px 10%;
-	box-shadow:10px 10px lightgray;
-
-=======
   font-size:20pt;
   border-color: black;
   text-align:center;
@@ -82,7 +72,6 @@
 }
 body{
 	background-color:lightsteelblue !important;
->>>>>>> Stashed changes
 }
 
 #out:empty{
@@ -141,4 +130,16 @@ input
 	font-size:10pt !important;
 	color: white;
 	width: 200px;
+}
+
+#centerButtons
+{
+	text-align: center;
+}
+
+.centerButton
+{
+	height: 40px;
+	width: auto !important;
+	font-size: 18pt;
 }

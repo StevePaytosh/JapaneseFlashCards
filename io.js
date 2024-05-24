@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-var data_string="";
-var doc;
-
-
-window.onload = function() {
-=======
 function run_file(doc,start, end)
 {
 	for(var i=start;i<end;i++)
@@ -31,7 +24,6 @@ function run_file(doc,start, end)
 
  window.onload = function() {
 		
->>>>>>> Stashed changes
 		var fileInput = document.getElementById('fileInput');
 		var fileDisplayArea = document.getElementById('out');
 
@@ -53,33 +45,6 @@ function run_file(doc,start, end)
 				fileDisplayArea.innerText = "File not supported!"
 			}
 		});
-<<<<<<< Updated upstream
-};
-
-function print(text)
-{
-	//gets the top of the stack and prints italics
-	var r=$("#out");
-	r.html(r.html()+text+"<p>");
-	data_string+=top+"\n";
-}
-
-function show(cont)
-{
-	//gets the top of the stack and prints italics
-	var r=$("#out");
-	r.html(r.html()+cont+"<p>");
-	data_string+=cont+"\n";
-	
-}
-
-function clearOutput()
-{
-	$("#out").html("");
-	data_string="";
-}
-
-=======
 }; 
 
 function processFile()
@@ -87,4 +52,3 @@ function processFile()
 	run_file(doc,0,doc.length);
   MapQuestions();
 }
->>>>>>> Stashed changes

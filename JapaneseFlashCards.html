@@ -1,4 +1,17 @@
+<meta charset="utf-8">
 <head>
+<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	  <script type='text/javascript' src='knockout-3.5.1.js'></script>
+	  <script src="jquery-3.2.1.js"></script>	
+      <script type="text/javascript" src="controller.js" ></script>
+	  <script type="text/javascript" src="io.js" ></script>
+
+	  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 
 <body>
 <div class="s">
@@ -10,7 +23,6 @@
 <span data-bind="text: QuestionViewModel.QuestionCounter()"/>
 </div>
   
-
   <div id="out" data-bind="visible: QuestionViewModel.DisplayCard()">
    <div id="category" data-bind="text:QuestionViewModel.category(),  visible: QuestionViewModel.DisplayCategory()"></div>
    <div id="question-header" class="header">Q</div>
@@ -22,7 +34,7 @@
   </div>
   
 <div id="centerButtons" data-bind="visible:QuestionViewModel.ShowCenterButtons()">
-<button class="centerButton" id="Next" data-bind="click:GetNext, visible:QuestionViewModel.ShowNextButton()">Next</button><br>
+<button class="centerButton" type="text" id="Next" data-bind="click:GetNext, visible:QuestionViewModel.ShowNextButton()">Next</button><br>
 <button class="centerButton" id="Reload" data-bind="click:ReloadQuestions, visible:QuestionViewModel.ShowReloadButton()">Reload Questions</button><br>
 <button class="centerButton" id="Reset" data-bind="click:ResetQuestions, visible:false;">Reset</button><br>
 </div>
