@@ -1,0 +1,9 @@
+きらい, ,kirai,to dislike, Na-Adjectives
+きれい, ,kirei,beautiful, Na-Adjectives
+げんき, ,genki,okay, Na-Adjectives
+すき, ,suki,to like, Na-Adjectives
+だいきらい, ,daikirai,to hate, Na-Adjectives
+だいすき, ,daisuki,to love, Na-Adjectives
+にぎやか, ,nigiyaka,lively, Na-Adjectives
+ひま, ,hima,not busy, Na-Adjectives
+たいへん。, ,taihen,hard, Na-Adjectives
