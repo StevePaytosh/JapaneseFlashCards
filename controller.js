@@ -73,7 +73,6 @@ function checkBoxChangePreloadedQuestion()
       };
     
   MapQuestions();    
-  //process();
 
     QuestionViewModel.japanese(currentQuestion.japanese);
     QuestionViewModel.english(currentQuestion.english);
@@ -272,14 +271,6 @@ function hasValue(chkValue)
   return QuestionViewModel.savedOptions.includes(chkValue,0);  
 }
 
-//Visibility Functions
-/* function ClearQuestions()
-{
-	QuestionViewModel.ShowCenterButtons(false);
-	QuestionViewModel.questions=ko.observableArray();
-	QuestionViewModel.State('');
-}
-*/
 function clearOutput()
 {
     QuestionViewModel.State('');
@@ -589,7 +580,6 @@ function MapQuestions()
 
 function ResetQuestions()
 {
-  //QuestionViewModel.questions = ko.observableArray();
   LoadStandardQuestions();
   MapQuestions();
 }
@@ -597,8 +587,7 @@ function ResetQuestions()
 function ReloadQuestions()
 {
 	QuestionViewModel.ShowReloadButton(true);
-	//$.each(QuestionViewModel.removedQuestions(), function() { QuestionViewModel.questions.push(this); });
-  LoadStandardQuestions();
+	LoadStandardQuestions();
 	QuestionViewModel.removedQuestions = ko.observableArray(); QuestionViewModel.QuestionCounter(QuestionViewModel.questions().length);
 	QuestionViewModel.State('FileLoaded');
 	QuestionViewModel.japanese('Questions Reloaded');
@@ -687,9 +676,7 @@ function addHiragana()
   addQuestion('め','','Me','Hiragana');
   addQuestion('も','','Mo','Hiragana');
   addQuestion('や','','Ya','Hiragana');
-  //addQuestion('いい','','Ii','Hiragana');
   addQuestion('ゆ','','Yu','Hiragana');
-  //addQuestion('いぇ','','I~e','Hiragana');
   addQuestion('よ','','Yo','Hiragana');
   addQuestion('ら','','Ra','Hiragana');
   addQuestion('り','','Ri','Hiragana');
@@ -697,9 +684,7 @@ function addHiragana()
   addQuestion('れ','','Re','Hiragana');
   addQuestion('ろ','','Ro','Hiragana');
   addQuestion('わ','','Wa','Hiragana');
-  //addQuestion('うぃ','','Wi','Hiragana');
   addQuestion('う','','U','Hiragana');
-  //addQuestion('うぇ','','We','Hiragana');
   addQuestion('を','','O','Hiragana');
   addQuestion('ん','','N','Hiragana');
   
@@ -849,11 +834,6 @@ function addKanji()
    addQuestion('千','sen','thousand','Kanji');
   addQuestion('万','man','ten-thousand','Kanji');
   addQuestion('円','','yen','Kanji');
-  //addQuestion('木','yon','three','Kanji');
-  //addQuestion('土','yon','three','Kanji');
-  //addQuestion('金','yon','three','Kanji');
-  //addQuestion('日','yon','three','Kanji');
-  //addQuestion('月','yon','three','Kanji');
   addQuestion('彼 ','kare','He','Kanji');
 addQuestion('今','ima','Now','Kanji');
   addQuestion('私','watashi','I','Kanji');

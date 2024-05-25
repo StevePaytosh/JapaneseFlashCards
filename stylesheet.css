@@ -78,14 +78,6 @@ body{
 	display:none;
 }
 
-
-.s
-{
-	--background-color:lightsteelblue; 
-	--min-height:250vh;
-	--width: 100vw;
-}
-
 button{
 	
 	background-color:green;
