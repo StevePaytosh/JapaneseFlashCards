@@ -2,24 +2,25 @@ function RemoveQuestion(q)
 {
 	QuestionViewModel.questions.remove(q);
 	QuestionViewModel.removedQuestions.push(q);
-	QuestionViewModel.QuestionCounter(QuestionViewModel.questions().length);
+	//QuestionViewModel.QuestionCounter(QuestionViewModel.questions().length);
+	UpdateQuestionCounter();
 }
 
 function NextQuestion()
 {
   
-  var previousQuestion = 
-      {
-        	japanese: QuestionViewModel.japanese(),
-          romanji: QuestionViewModel.romanji(),
-          english: QuestionViewModel.english(),
-          category: QuestionViewModel.category()
-      };
+	var previousQuestion = 
+	  {
+		japanese: QuestionViewModel.japanese(),
+		romanji: QuestionViewModel.romanji(),
+		english: QuestionViewModel.english(),
+		category: QuestionViewModel.category()
+	  };
   
 	QuestionViewModel.japanese('');
-  QuestionViewModel.romanji('');
+	QuestionViewModel.romanji('');
 	QuestionViewModel.english('');
-  QuestionViewModel.category('');
+	QuestionViewModel.category('');
 	
 	if(QuestionViewModel.questions().length > 0)
 	{
@@ -31,9 +32,13 @@ function NextQuestion()
 	}
 	else
 	{
-		QuestionViewModel.State('OutOfQuestions');
-		QuestionViewModel.ShowReloadButton(true);
-		QuestionViewModel.ShowNextButton(false);
+		//QuestionViewModel.State('OutOfQuestions');
+		SetOutOfQuestionState();
+		//QuestionViewModel.ShowReloadButton(true);
+		ShowReloadButton();
+		SetOutOfQuestionsView();
+		//QuestionViewModel.ShowNextButton(false);
+		HideNextButton();
 		return;
 	}
 
@@ -44,30 +49,11 @@ function NextQuestion()
 		QuestionViewModel.ShowNextButton(true);
 	}
 	
-	QuestionViewModel.State('QuestionLoaded');
+	//QuestionViewModel.State('QuestionLoaded');
+	SetQuestionLoadedState();
 }
 
-function MapQuestions()
-{
-  if(QuestionViewModel.chkFileLoadedQuestions())
-    {
-      QuestionViewModel.questions = ko.observableArray();
-      LoadQuestions();
- 
-     
-    for(let i=0; i<QuestionViewModel.externalQuestions().length; i++)
-    {
-      var question = QuestionViewModel.externalQuestions()[i];
-        addQuestion(
-          question["japanese"]
-          ,question["romanji"]
-          ,question["english"]
-          ,question["category"]
-        );
-    }
 
-   }
-}
 
 function ResetQuestions()
 {
@@ -90,15 +76,21 @@ function addQuestion(j,r,e,category='')
 
 function ReloadQuestions()
 {
-	QuestionViewModel.ShowReloadButton(true);
+	//QuestionViewModel.ShowReloadButton(true);
 	LoadQuestions();
-	QuestionViewModel.removedQuestions = ko.observableArray(); QuestionViewModel.QuestionCounter(QuestionViewModel.questions().length);
-	QuestionViewModel.State('FileLoaded');
-	QuestionViewModel.japanese('Questions Reloaded');
-	QuestionViewModel.ShowNextButton(true);
-	QuestionViewModel.ShowReloadButton(false);
+	ClearRemovedQuestions();
+	//QuestionViewModel.removedQuestions = ko.observableArray(); 
+	//QuestionViewModel.QuestionCounter(QuestionViewModel.questions().length);
+	UpdateQuestionCounter();
+	//QuestionViewModel.State('FileLoaded');
+	SetFileLoadedState();
+	SetFileLoadedView();
+	//QuestionViewModel.japanese('Questions Reloaded');
+	//QuestionViewModel.ShowNextButton(true);
+	//QuestionViewModel.ShowReloadButton(false);
+	HideReloadButton();
+	ShowNextButton();
 }
-
 
 function GetRandomQuestion()
 {
@@ -134,4 +126,29 @@ function GetRandomQuestion()
 function getRandomValue(length)
 {
 	return Math.floor( Math.random()*length ); 
+}
+
+function SetFileLoadedState()
+{
+	QuestionViewModel.State('FileLoaded');
+}
+
+function SetQuestionLoadedState()
+{
+	QuestionViewModel.State('QuestionLoaded');
+}
+
+function SetOutOfQuestionState()
+{
+	QuestionViewModel.State('OutOfQuestions');
+}
+
+function ClearQuestions()
+{
+	QuestionViewModel.questions = ko.observableArray();
+}
+
+function ClearRemovedQuestions()
+{
+	QuestionViewModel.removedQuestions = ko.observableArray(); 
 }

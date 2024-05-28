@@ -39,9 +39,9 @@
   </div>
   
 <div id="centerButtons" data-bind="visible:QuestionViewModel.ShowCenterButtons()">
-<button class="centerButton" type="text" id="Next" data-bind="click:GetNext, visible:QuestionViewModel.ShowNextButton()">Next</button><br>
-<button class="centerButton" id="Reload" data-bind="click:ReloadQuestions, visible:QuestionViewModel.ShowReloadButton()">Reload Questions</button><br>
-<button class="centerButton" id="Reset" data-bind="click:ResetQuestions, visible:false;">Reset</button><br>
+<button class="centerButton" type="text" id="Next" data-bind="click:GetNext, visible:QuestionViewModel.ShowNextButton(), enable: QuestionViewModel.EnableNextButton()">Next</button><br>
+<button class="centerButton" type="text" id="Reload" data-bind="click:ReloadQuestions, visible:QuestionViewModel.ShowReloadButton()">Reload Questions</button><br>
+<button class="centerButton" type="text" id="Reset" data-bind="click:ResetQuestions, visible:false;">Reset</button><br>
 </div>
   <p>
    
@@ -57,7 +57,7 @@
 		<p><input type="checkbox" value="JapaneseToEnglish" data-bind="checked:QuestionViewModel.chkJapaneseToEnglish, event: { change: checkBoxChangeOptions() }, enable: false;"/>Japanese To English Questions</p>
 	</div>
 		<input type="file" id="fileInput" name="files[]"  /> <p>
-		<button id="run" data-bind="click:processFile, visible: true, enable:  QuestionViewModel.EnableFileLoadedQuestions()">Load CSV</button><br> 
+		<button id="run" data-bind="click:processFile, visible: true, enable: QuestionViewModel.EnableFileLoadedQuestions()">Load CSV</button><br> 
 	</div>
   </div>
   

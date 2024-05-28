@@ -3,22 +3,26 @@ function run_file(doc,start, end)
 	for(var i=start;i<end;i++)
 	{
 		doc[i]=doc[i].trim();
-		var args=doc[i].split(","); //split up the line on commas
+		var args=doc[i].split(",");
 		var ans="";
     
-    addQuestion(args[0],args[2],args[3],args[4]);
-      var question=
-      {
-        japanese: args[0],
-        romanji: args[2],
-        english: args[3],
-        category: args[4]
-      };
-    
-    //add some validation please
+		addQuestion(args[0],args[2],args[3],args[4]);
+		
+		var question=
+		{
+			japanese: args[0],
+			romanji: args[2],
+			english: args[3],
+			category: args[4]
+		};
+
+		//add some validation please
 		QuestionViewModel.externalQuestions.push(question);
-		
-		
+	}
+	
+	if(QuestionViewModel.externalQuestions().length>0)
+	{
+		SetFileLoadedView();
 	}
 }
 
@@ -41,7 +45,9 @@ function run_file(doc,start, end)
 				}
 
 				reader.readAsText(file);	
+				AllowFileLoad();
 			} else {
+				DisableFileLoad();
 				fileDisplayArea.innerText = "File not supported!"
 			}
 		});
@@ -50,5 +56,5 @@ function run_file(doc,start, end)
 function processFile()
 {
 	run_file(doc,0,doc.length);
-  MapQuestions();
+	MapQuestions();
 }

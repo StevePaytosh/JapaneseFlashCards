@@ -74,16 +74,39 @@ function process() //rename me please
 {
 	QuestionViewModel.ShowCenterButtons(true);
 	QuestionViewModel.DisplayCard(true);
-	QuestionViewModel.category("Ready: Hit Next to Start!");
+	SetInitializationView();
+	ShowNextButton();
 	QuestionViewModel.DisplayJapanese(true);
 	SetRomanjiVisibility();
 	QuestionViewModel.DisplayEnglish(false);
 	QuestionViewModel.DisplayCategory(true);
 	QuestionViewModel.ShowNextButton (true);  
-	QuestionViewModel.QuestionCounter(QuestionViewModel.questions().length);
+	UpdateQuestionCounter();
 	QuestionViewModel.State('FileLoaded');
 }
 
+function UpdateQuestionCounter()
+{
+	QuestionViewModel.QuestionCounter(QuestionViewModel.questions().length);
+}
 
+function ShowReloadButton()
+{
+	QuestionViewModel.ShowReloadButton(true);
+}
 
+function HideReloadButton()
+{
+	QuestionViewModel.ShowReloadButton(false);
+}
+
+function HideNextButton()
+{
+	QuestionViewModel.ShowNextButton(false);
+}
+
+function ShowNextButton()
+{
+	QuestionViewModel.ShowNextButton(true);
+}
 

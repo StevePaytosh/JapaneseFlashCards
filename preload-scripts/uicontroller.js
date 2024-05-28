@@ -1,86 +1,86 @@
 var QuestionViewModel = function()
 {
 	QuestionViewModel.english = ko.observable('');
-  QuestionViewModel.romanji = ko.observable('');
+	QuestionViewModel.romanji = ko.observable('');
 	QuestionViewModel.japanese = ko.observable('');
-  QuestionViewModel.category = ko.observable('');
+	QuestionViewModel.category = ko.observable('');
 	QuestionViewModel.State = ko.observable('');
 	QuestionViewModel.QuestionCounter = ko.observable(0);
 	QuestionViewModel.DisplayQuestionCounter = ko.observable(false);
 	QuestionViewModel.ShowCenterButtons = ko.observable(false);
-	QuestionViewModel.ShowNextButton = ko.observable(false);
+	QuestionViewModel.ShowNextButton = ko.observable(true);
 	QuestionViewModel.ShowReloadButton = ko.observable(false);
 	QuestionViewModel.DisplayJapanese = ko.observable(true);
 	QuestionViewModel.DisplayEnglish = ko.observable(false);
-  QuestionViewModel.DisplayRomanji = false;
-  QuestionViewModel.DisplayRomanjiQ = ko.observable(false);
-  QuestionViewModel.DisplayRomanjiA = ko.observable(false);
-  QuestionViewModel.DisplayCategory = ko.observable(true);
+	QuestionViewModel.DisplayRomanji = false;
+	QuestionViewModel.DisplayRomanjiQ = ko.observable(false);
+	QuestionViewModel.DisplayRomanjiA = ko.observable(false);
+	QuestionViewModel.DisplayCategory = ko.observable(true);
 	QuestionViewModel.DisplayCard = ko.observable(true);
 	QuestionViewModel.questions = ko.observableArray();
 	QuestionViewModel.removedQuestions = ko.observableArray();
-  QuestionViewModel.externalQuestions = ko.observableArray();
+	QuestionViewModel.externalQuestions = ko.observableArray();
   
-  QuestionViewModel.EnableHiragana = ko.observable(true);
-  QuestionViewModel.EnableHiraganaDakuten = ko.observable(true);
-  QuestionViewModel.EnableHiraganaHandakuten = ko.observable(true);
-  QuestionViewModel.EnableKatakanaDakuten = ko.observable(true);
-  QuestionViewModel.EnableKatakanaHandakuten = ko.observable(true);
-  QuestionViewModel.EnableKatakana = ko.observable(true);
-  QuestionViewModel.EnableKanji = ko.observable(true);
-  QuestionViewModel.EnableHiraganaNumbers = ko.observable(true);
-  QuestionViewModel.EnableWords = ko.observable(false);
-  QuestionViewModel.EnablePhrases = ko.observable(false);
-  QuestionViewModel.EnableFileLoadedQuestions = ko.observable(true);
-  
-  QuestionViewModel.chkHiragana = ko.observable(false);
-  QuestionViewModel.chkHiraganaDakuten = ko.observable(false);
-  QuestionViewModel.chkHiraganaHandakuten = ko.observable(false);
-  QuestionViewModel.chkKatakana = ko.observable(false);
-  QuestionViewModel.chkKatakanaDakuten = ko.observable(false);
-  QuestionViewModel.chkKatakanaHandakuten = ko.observable(false);
-  QuestionViewModel.chkKanji = ko.observable(false);
-  QuestionViewModel.chkHiraganaNumbers = ko.observable(false);
-  QuestionViewModel.chkWords = ko.observable(false);
-  QuestionViewModel.chkPhrases = ko.observable(false);
-  QuestionViewModel.chkCategory = ko.observable(true);
-  QuestionViewModel.chkRomanji = ko.observable(false);
-  QuestionViewModel.chkQuestionCounter = ko.observable(false);
-  QuestionViewModel.chkRepeatQuestions = ko.observable(true);
-  QuestionViewModel.chkJapaneseToEnglish = ko.observable(true);
-  QuestionViewModel.chkRandomNumber = ko.observable(false);
-  QuestionViewModel.chkFileLoadedQuestions = ko.observable(true);
-  
-  QuestionViewModel.savedOptions = [];
+	QuestionViewModel.EnableHiragana = ko.observable(true);
+	QuestionViewModel.EnableHiraganaDakuten = ko.observable(true);
+	QuestionViewModel.EnableHiraganaHandakuten = ko.observable(true);
+	QuestionViewModel.EnableKatakanaDakuten = ko.observable(true);
+	QuestionViewModel.EnableKatakanaHandakuten = ko.observable(true);
+	QuestionViewModel.EnableKatakana = ko.observable(true);
+	QuestionViewModel.EnableKanji = ko.observable(true);
+	QuestionViewModel.EnableHiraganaNumbers = ko.observable(true);
+	QuestionViewModel.EnableWords = ko.observable(false);
+	QuestionViewModel.EnablePhrases = ko.observable(false);
+	QuestionViewModel.EnableNextButton = ko.observable(false);
+
+	QuestionViewModel.chkHiragana = ko.observable(false);
+	QuestionViewModel.chkHiraganaDakuten = ko.observable(false);
+	QuestionViewModel.chkHiraganaHandakuten = ko.observable(false);
+	QuestionViewModel.chkKatakana = ko.observable(false);
+	QuestionViewModel.chkKatakanaDakuten = ko.observable(false);
+	QuestionViewModel.chkKatakanaHandakuten = ko.observable(false);
+	QuestionViewModel.chkKanji = ko.observable(false);
+	QuestionViewModel.chkHiraganaNumbers = ko.observable(false);
+	QuestionViewModel.chkWords = ko.observable(false);
+	QuestionViewModel.chkPhrases = ko.observable(false);
+	QuestionViewModel.chkCategory = ko.observable(true);
+	QuestionViewModel.chkRomanji = ko.observable(false);
+	QuestionViewModel.chkQuestionCounter = ko.observable(false);
+	QuestionViewModel.chkRepeatQuestions = ko.observable(true);
+	QuestionViewModel.chkJapaneseToEnglish = ko.observable(true);
+	QuestionViewModel.chkRandomNumber = ko.observable(false);
+	QuestionViewModel.chkFileLoadedQuestions = ko.observable(true);
+
+	QuestionViewModel.savedOptions = [];
 	
 };
 
 function setDefaultSettings()
 {
-    QuestionViewModel.EnableHiragana(true);
-  QuestionViewModel.EnableHiraganaDakuten(true);
-  QuestionViewModel.EnableHiraganaHandakuten(true);
-    QuestionViewModel.EnableKatakana(true);
-   QuestionViewModel.EnableKatakanaDakuten(true);
-  QuestionViewModel.EnableKatakanaHandakuten(true);
-    QuestionViewModel.EnableKanji(true);
-    QuestionViewModel.EnableHiraganaNumbers(true);
-    QuestionViewModel.EnableWords(true);
-    QuestionViewModel.EnablePhrases(true);
-      
-    QuestionViewModel.chkHiragana(false);
-  QuestionViewModel.chkHiraganaDakuten(false);
-  QuestionViewModel.chkHiraganaHandakuten(false);
-    QuestionViewModel.chkKatakana(false);
-    QuestionViewModel.chkKatakanaDakuten(false);
-  QuestionViewModel.chkKatakanaHandakuten(false);
-    QuestionViewModel.chkKanji(false);
-    QuestionViewModel.chkHiraganaNumbers(false);
-    QuestionViewModel.chkWords(false);
-    QuestionViewModel.chkPhrases(false);
-  
-    QuestionViewModel.chkHiragana(true);
-    QuestionViewModel.chkiraganaNumbers(true);
+	QuestionViewModel.EnableHiragana(true);
+	QuestionViewModel.EnableHiraganaDakuten(true);
+	QuestionViewModel.EnableHiraganaHandakuten(true);
+	QuestionViewModel.EnableKatakana(true);
+	QuestionViewModel.EnableKatakanaDakuten(true);
+	QuestionViewModel.EnableKatakanaHandakuten(true);
+	QuestionViewModel.EnableKanji(true);
+	QuestionViewModel.EnableHiraganaNumbers(true);
+	QuestionViewModel.EnableWords(true);
+	QuestionViewModel.EnablePhrases(true);
+	  
+	QuestionViewModel.chkHiragana(false);
+	QuestionViewModel.chkHiraganaDakuten(false);
+	QuestionViewModel.chkHiraganaHandakuten(false);
+	QuestionViewModel.chkKatakana(false);
+	QuestionViewModel.chkKatakanaDakuten(false);
+	QuestionViewModel.chkKatakanaHandakuten(false);
+	QuestionViewModel.chkKanji(false);
+	QuestionViewModel.chkHiraganaNumbers(false);
+	QuestionViewModel.chkWords(false);
+	QuestionViewModel.chkPhrases(false);
+
+	QuestionViewModel.chkHiragana(true);
+	QuestionViewModel.chkiraganaNumbers(true);
 }
 
 
@@ -96,32 +96,8 @@ function checkBoxChangePreloadedQuestion()
         questionState: QuestionViewModel.State()
       };
     
-  MapQuestions();    
-
-    QuestionViewModel.japanese(currentQuestion.japanese);
-    QuestionViewModel.english(currentQuestion.english);
-    QuestionViewModel.romanji(currentQuestion.romanji);
-    QuestionViewModel.category(currentQuestion.category);
-    QuestionViewModel.DisplayEnglish(currentQuestion.showAnswer);
-    QuestionViewModel.State(currentQuestion.questionState);
-  
-    checkBoxChangeDisplay();
-    
-}
-
-function checkBoxChangePreloadedQuestion()
-{
-    var currentQuestion = 
-      {
-        japanese: QuestionViewModel.japanese(),
-        english: QuestionViewModel.english(),
-        romanji: QuestionViewModel.romanji(),
-        category: QuestionViewModel.category(),
-        showAnswer: QuestionViewModel.DisplayEnglish(),
-        questionState: QuestionViewModel.State()
-      };
-    
-  MapQuestions();    
+	//MapQuestions();  //VSC  
+	LoadQuestions();
 
     QuestionViewModel.japanese(currentQuestion.japanese);
     QuestionViewModel.english(currentQuestion.english);
@@ -157,7 +133,6 @@ function toggleRandomNumber()
       QuestionViewModel.EnableHiraganaNumbers(false);
       QuestionViewModel.EnableWords(false);
       QuestionViewModel.EnablePhrases(false);
-      QuestionViewModel.EnableFileLoadedQuestions(false);
      
     }
   else
@@ -172,7 +147,6 @@ function toggleRandomNumber()
       QuestionViewModel.EnableHiraganaNumbers(true);
       QuestionViewModel.EnableWords(true);
       QuestionViewModel.EnablePhrases(true);
-      QuestionViewModel.EnableFileLoadedQuestions(true);
       
       restoreSettings();
       QuestionViewModel.savedValues=[];
@@ -274,3 +248,42 @@ function SaveSettings()
         { QuestionViewModel.savedOptions.push("fileloadedquestions");}
 }
 
+function SetInitializationView()
+{
+	QuestionViewModel.category("Welcome");
+	QuestionViewModel.japanese("Load a Question Type To Begin");
+	QuestionViewModel.english("");
+	QuestionViewModel.romanji("");
+	QuestionViewModel.EnableNextButton(false);
+}
+
+function SetFileLoadedView()
+{
+	QuestionViewModel.category("Questions Loaded Successfully");
+	QuestionViewModel.japanese("Hit Next To Continue");
+	QuestionViewModel.english("");
+	QuestionViewModel.romanji("");
+	QuestionViewModel.EnableNextButton(true);
+	UpdateQuestionCounter();
+	ShowNextButton();
+}
+
+function AllowFileLoad()
+{
+}
+
+function DisableFileLoad()
+{	
+}
+
+function EnableNextButton(val)
+{
+	QuestionViewModel.EnableNextButton(val);
+}
+
+function SetOutOfQuestionsView()
+{
+	QuestionViewModel.category("Out of Questions")
+	QuestionViewModel.japanese("Hit Reload or Select a new category");
+	QuestionViewModel.english("");
+}

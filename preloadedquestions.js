@@ -92,117 +92,116 @@ function addHiraganaHandakuten()
 
 function addKatakana()
 {
-  addQuestion('ア','','a','Katakana');
-addQuestion('イ','','i','Katakana');
-addQuestion('ウ','','u','Katakana');
-addQuestion('エ','','e','Katakana');
-addQuestion('オ','','o','Katakana');
-addQuestion('カ','','ka','Katakana');
-addQuestion('キ','','ki','Katakana');
-addQuestion('ク','','ku','Katakana');
-addQuestion('ケ','','ke','Katakana');
-addQuestion('コ','','ko','Katakana');
-addQuestion('サ','','sa','Katakana');
-addQuestion('シ','','shi','Katakana');
-addQuestion('ス','','su','Katakana');
-addQuestion('セ','','se','Katakana');
-addQuestion('ソ','','so','Katakana');
-addQuestion('タ','','ta','Katakana');
-addQuestion('チ','','chi','Katakana');
-addQuestion('ツ','','tsu','Katakana');
-addQuestion('テ','','te','Katakana');
-addQuestion('ト','','to','Katakana');
-addQuestion('ナ','','na','Katakana');
-addQuestion('ニ','','ni','Katakana');
-addQuestion('ヌ','','nu','Katakana');
-addQuestion('ネ','','ne','Katakana');
-addQuestion('ノ','','no','Katakana');
-addQuestion('ハ','','ha','Katakana');
-addQuestion('ヒ','','hi','Katakana');
-addQuestion('フ','','fu','Katakana');
-addQuestion('ヘ','','he','Katakana');
-addQuestion('ホ','','ho','Katakana');
-addQuestion('マ','','ma','Katakana');
-addQuestion('ミ','','mi','Katakana');
-addQuestion('ム','','mu','Katakana');
-addQuestion('メ','','me','Katakana');
-addQuestion('モ','','mo','Katakana');
-addQuestion('ヤ','','ya','Katakana');
-addQuestion('ユ','','yu','Katakana');
-addQuestion('ヨ','','yo','Katakana');
-addQuestion('ラ','','ra','Katakana');
-addQuestion('リ','','ri','Katakana');
-addQuestion('ル','','ru','Katakana');
-addQuestion('レ','','re','Katakana');
-addQuestion('ロ','','ro','Katakana');
-addQuestion('ワ','','wa','Katakana');
-addQuestion('ヲ','','wo','Katakana');
-addQuestion('ン','','n','Katakana');
+	addQuestion('ア','','a','Katakana');
+	addQuestion('イ','','i','Katakana');
+	addQuestion('ウ','','u','Katakana');
+	addQuestion('エ','','e','Katakana');
+	addQuestion('オ','','o','Katakana');
+	addQuestion('カ','','ka','Katakana');
+	addQuestion('キ','','ki','Katakana');
+	addQuestion('ク','','ku','Katakana');
+	addQuestion('ケ','','ke','Katakana');
+	addQuestion('コ','','ko','Katakana');
+	addQuestion('サ','','sa','Katakana');
+	addQuestion('シ','','shi','Katakana');
+	addQuestion('ス','','su','Katakana');
+	addQuestion('セ','','se','Katakana');
+	addQuestion('ソ','','so','Katakana');
+	addQuestion('タ','','ta','Katakana');
+	addQuestion('チ','','chi','Katakana');
+	addQuestion('ツ','','tsu','Katakana');
+	addQuestion('テ','','te','Katakana');
+	addQuestion('ト','','to','Katakana');
+	addQuestion('ナ','','na','Katakana');
+	addQuestion('ニ','','ni','Katakana');
+	addQuestion('ヌ','','nu','Katakana');
+	addQuestion('ネ','','ne','Katakana');
+	addQuestion('ノ','','no','Katakana');
+	addQuestion('ハ','','ha','Katakana');
+	addQuestion('ヒ','','hi','Katakana');
+	addQuestion('フ','','fu','Katakana');
+	addQuestion('ヘ','','he','Katakana');
+	addQuestion('ホ','','ho','Katakana');
+	addQuestion('マ','','ma','Katakana');
+	addQuestion('ミ','','mi','Katakana');
+	addQuestion('ム','','mu','Katakana');
+	addQuestion('メ','','me','Katakana');
+	addQuestion('モ','','mo','Katakana');
+	addQuestion('ヤ','','ya','Katakana');
+	addQuestion('ユ','','yu','Katakana');
+	addQuestion('ヨ','','yo','Katakana');
+	addQuestion('ラ','','ra','Katakana');
+	addQuestion('リ','','ri','Katakana');
+	addQuestion('ル','','ru','Katakana');
+	addQuestion('レ','','re','Katakana');
+	addQuestion('ロ','','ro','Katakana');
+	addQuestion('ワ','','wa','Katakana');
+	addQuestion('ヲ','','wo','Katakana');
+	addQuestion('ン','','n','Katakana');
 }
 
 function addKatakanaDakuten()
 {
-   addQuestion('ガ','','Ga','Katakana');
-addQuestion('ギ','','Gi','Katakana');
+	addQuestion('ガ','','Ga','Katakana');
+	addQuestion('ギ','','Gi','Katakana');
 
-  addQuestion('グ','','Gu','Katakana');
-addQuestion('ゲ','','Ge','Katakana');
-addQuestion('ゴ','','Go','Katakana');
-  
-  addQuestion('ザ','','Za','Katakana');
-addQuestion('ジ','','Ji','Katakana');
-addQuestion('ズ','','Zu','Katakana');
-addQuestion('ぜ','','Ze','Katakana');
-addQuestion('ゾ','','Zo','Katakana');
-  
-  addQuestion('ダ','','Da','Katakana');
-addQuestion('デ','','De','Katakana');
-addQuestion('ド','','Do','Katakana');
-  
-  addQuestion('バ','','Ba','Katakana');
-addQuestion('ビ','','Bi','Katakana');
-addQuestion('ブ','','Bu','Katakana');
-addQuestion('ベ','','Be','Katakana');
+	addQuestion('グ','','Gu','Katakana');
+	addQuestion('ゲ','','Ge','Katakana');
+	addQuestion('ゴ','','Go','Katakana');
 
+	addQuestion('ザ','','Za','Katakana');
+	addQuestion('ジ','','Ji','Katakana');
+	addQuestion('ズ','','Zu','Katakana');
+	addQuestion('ぜ','','Ze','Katakana');
+	addQuestion('ゾ','','Zo','Katakana');
+
+	addQuestion('ダ','','Da','Katakana');
+	addQuestion('デ','','De','Katakana');
+	addQuestion('ド','','Do','Katakana');
+
+	addQuestion('バ','','Ba','Katakana');
+	addQuestion('ビ','','Bi','Katakana');
+	addQuestion('ブ','','Bu','Katakana');
+	addQuestion('ベ','','Be','Katakana');
 }
 
 function addKatakanaHandakuten()
 {
-      addQuestion('パ','','Pa','Katakana');
-addQuestion('ピ','','Pi','Katakana');
-addQuestion('プ','','Pu','Katakana');
-addQuestion('ペ','','Pe','Katakana');
-addQuestion('ポ','','Po','Katakana');
+	addQuestion('パ','','Pa','Katakana');
+	addQuestion('ピ','','Pi','Katakana');
+	addQuestion('プ','','Pu','Katakana');
+	addQuestion('ペ','','Pe','Katakana');
+	addQuestion('ポ','','Po','Katakana');
 }
 
 function addKanji()
 {
-  addQuestion('一','ichi','one','Kanji');
-  addQuestion('二','ni','two','Kanji');
-  addQuestion('三','san','three','Kanji');
-  
-   addQuestion('四','yon','four','Kanji');
-  addQuestion('五','go','five','Kanji');
-  addQuestion('六','roku','six','Kanji');
-  addQuestion('七','nana/shichi','seven','Kanji');
-  addQuestion('八','hachi','eight','Kanji');
-  addQuestion('九','kyuu','nine','Kanji');
-  addQuestion('十','ju','ten','Kanji');
-  
-  addQuestion('半','han','-thirty (half past the hour)','Kanji');
-  addQuestion('卵','tamago','egg','Kanji');
-  addQuestion('山','yama','mountain','Kanji');
-  addQuestion('中','naka','inside','Kanji');
-  addQuestion('肉','niku','inside','Kanji');
-  addQuestion('父','chichi','dad','Kanji');
-  addQuestion('母','haha','mom','Kanji'); 
-  addQuestion('百','tabe','eat','Kanji'); 
-  addQuestion('千','hyaku','hundred','Kanji'); 
-   addQuestion('千','sen','thousand','Kanji');
-  addQuestion('万','man','ten-thousand','Kanji');
-  addQuestion('円','','yen','Kanji');
-  addQuestion('彼 ','kare','He','Kanji');
-addQuestion('今','ima','Now','Kanji');
-  addQuestion('私','watashi','I','Kanji');
-  addQuestion('家 ','ie','Home','Kanji');
+	addQuestion('一','ichi','one','Kanji');
+	addQuestion('二','ni','two','Kanji');
+	addQuestion('三','san','three','Kanji');
+
+	addQuestion('四','yon','four','Kanji');
+	addQuestion('五','go','five','Kanji');
+	addQuestion('六','roku','six','Kanji');
+	addQuestion('七','nana/shichi','seven','Kanji');
+	addQuestion('八','hachi','eight','Kanji');
+	addQuestion('九','kyuu','nine','Kanji');
+	addQuestion('十','ju','ten','Kanji');
+
+	addQuestion('半','han','-thirty (half past the hour)','Kanji');
+	addQuestion('卵','tamago','egg','Kanji');
+	addQuestion('山','yama','mountain','Kanji');
+	addQuestion('中','naka','inside','Kanji');
+	addQuestion('肉','niku','inside','Kanji');
+	addQuestion('父','chichi','dad','Kanji');
+	addQuestion('母','haha','mom','Kanji'); 
+	addQuestion('百','tabe','eat','Kanji'); 
+	addQuestion('千','hyaku','hundred','Kanji'); 
+	addQuestion('千','sen','thousand','Kanji');
+	addQuestion('万','man','ten-thousand','Kanji');
+	addQuestion('円','','yen','Kanji');
+	addQuestion('彼 ','kare','He','Kanji');
+	addQuestion('今','ima','Now','Kanji');
+	addQuestion('私','watashi','I','Kanji');
+	addQuestion('家 ','ie','Home','Kanji');
 }

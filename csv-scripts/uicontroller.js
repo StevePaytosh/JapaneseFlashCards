@@ -21,8 +21,9 @@ var QuestionViewModel = function()
 	QuestionViewModel.questions = ko.observableArray();
 	QuestionViewModel.removedQuestions = ko.observableArray();
 	QuestionViewModel.externalQuestions = ko.observableArray();
-
-	QuestionViewModel.EnableFileLoadedQuestions = ko.observable(true);
+	
+	QuestionViewModel.EnableNextButton = ko.observable(false);
+	QuestionViewModel.EnableFileLoadedQuestions = ko.observable(false);
 	QuestionViewModel.chkRomanji = ko.observable(false);
 	QuestionViewModel.chkQuestionCounter = ko.observable(false);
 	QuestionViewModel.chkRepeatQuestions = ko.observable(true);
@@ -34,3 +35,39 @@ var QuestionViewModel = function()
 	
 };
 
+function SetInitializationView()
+{
+	QuestionViewModel.category("Welcome");
+	QuestionViewModel.japanese("Load a File To Begin");
+	QuestionViewModel.english("");
+	QuestionViewModel.romanji("");
+	QuestionViewModel.EnableNextButton(false);
+	QuestionViewModel.EnableFileLoadedQuestions(false);
+}
+
+function SetFileLoadedView()
+{
+	QuestionViewModel.category("File Loaded Successfully");
+	QuestionViewModel.japanese("Hit Next To Continue");
+	QuestionViewModel.english("");
+	QuestionViewModel.romanji("");
+	QuestionViewModel.EnableNextButton(true);
+	UpdateQuestionCounter();
+}
+
+function AllowFileLoad()
+{
+	QuestionViewModel.EnableFileLoadedQuestions(true);
+}
+
+function DisableFileLoad()
+{
+	QuestionViewModel.EnableFileLoadedQuestions(false);
+}
+
+function SetOutOfQuestionsView()
+{
+	QuestionViewModel.category("Out of Questions")
+	QuestionViewModel.english("");
+	QuestionViewModel.japanese("");
+}
