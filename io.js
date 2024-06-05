@@ -3,7 +3,7 @@ function run_file(doc,start, end)
 	for(var i=start;i<end;i++)
 	{
 		doc[i]=doc[i].trim();
-		var args=doc[i].split(",");
+		var args=doc[i].split("|");
 		var ans="";
     
 		addQuestion(args[0],args[2],args[3],args[4]);
