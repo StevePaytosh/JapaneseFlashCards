@@ -1,0 +1,78 @@
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/preload-scripts/preloadedquestions.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/base-preloadedquestions.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/base-questioncontroller.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/base-script.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/base-uicontroller.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/preload-scripts/questioncontroller.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/preload-scripts/uicontroller.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/randomnumber.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/stylesheet.css">
+
+<meta charset="utf-8">
+
+<body>
+<div class="s">
+<div id="title">Japanese Flash Cards</div>
+<p>
+<br>
+  <div data-bind=" visible: QuestionViewModel.DisplayQuestionCounter()" style="margin-left: 20px; color:red; font-size: 25px; text-align:center;">
+  Questions Remaining: 
+<span data-bind="text: QuestionViewModel.QuestionCounter()"/>
+</div>
+  
+  <div id="out" data-bind="visible: QuestionViewModel.DisplayCard()">
+   <div id="category" data-bind="text:QuestionViewModel.category(),  visible: QuestionViewModel.DisplayCategory()"></div>
+   <div id="question-header" class="header">Q</div>
+  <div id="question" class="information" data-bind="text:QuestionViewModel.question(), visible: QuestionViewModel.DisplayQuestion()"></div>
+   <div id="answer-header" class="header" >A</div>
+  <div id="answer" class="information" data-bind="text:QuestionViewModel.answer(), visible: QuestionViewModel.DisplayAnswer()"></div>
+    <div id="question-addon" class="addon" data-bind="text:QuestionViewModel.conjugate(), visible: QuestionViewModel.DisplayConjugateQ()"> </div>
+    <div id="answer-addon" class="addon" data-bind="text:QuestionViewModel.conjugate(), visible: QuestionViewModel.DisplayConjugateA()"></div>
+  </div>
+  
+<div id="centerButtons" data-bind="visible:QuestionViewModel.ShowCenterButtons()">
+<button class="centerButton" type="text" id="Next" data-bind="click:GetNext, visible:QuestionViewModel.ShowNextButton(),enable: QuestionViewModel.EnableNextButton()">Next</button><br>
+<button class="centerButton" type="text" id="Reload" data-bind="click:ReloadQuestions, visible:QuestionViewModel.ShowReloadButton()">Reload Questions</button><br>
+<button class="centerButton" type="text" id="Reset" data-bind="click:ResetQuestions, visible:false;">Reset</button><br>
+</div>
+  <p>
+   
+ <div style="margin-left:25vw;">
+      <h1>Options </h1>
+      
+    <div style="float:left; width:auto; display:table-cell;">
+   
+      <div style="border-style:solid; border-width:2px; border-color:black;">
+  <p><input type="checkbox" value="Hiragana" data-bind="checked:QuestionViewModel.chkHiragana, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableHiragana()"/>Hiragana</p>
+      
+      <p><input type="checkbox" value="HiraganaDakuten" data-bind="checked:QuestionViewModel.chkHiraganaDakuten, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableHiraganaDakuten()"/>Dakuten</p>
+      
+        <p><input type="checkbox" value="HiraganaHandakuten" data-bind="checked:QuestionViewModel.chkHiraganaHandakuten, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableHiraganaHandakuten"/>Handakuten</p> 
+      </div>
+       <div style="border-style:solid; border-width:2px; border-color:black;">
+      <p><input type="checkbox" value="Katakana" data-bind="checked:QuestionViewModel.chkKatakana, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableKatakana()"/>Katakana</p>
+         
+          <p><input type="checkbox" value="KatakanaDakuten" data-bind="checked:QuestionViewModel.chkKatakanaDakuten, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableKatakanaDakuten()"/>Dakuten</p>
+         
+           <p><input type="checkbox" value="KatakanaHandakuten" data-bind="checked:QuestionViewModel.chkKatakanaHandakuten, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableKatakanaHandakuten()"/>Handakuten</p> 
+      </div>
+      
+      <p><input type="checkbox" value="Kanji" data-bind="checked:QuestionViewModel.chkKanji, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableKanji()"/>Kanji</p>
+      <p><input type="checkbox" value="HiraganaNumbers" data-bind="checked:QuestionViewModel.chkHiraganaNumbers, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableHiraganaNumbers()"/>Numbers (Hiragana)</p>
+      <p><input type="checkbox" value="Words" data-bind="checked:QuestionViewModel.chkWords, event: { change: checkBoxChangePreloadedQuestion() }, enable:false"/>Words</p>
+      <p><input type="checkbox" value="Phrases" data-bind="checked:QuestionViewModel.chkPhrases, event: { change: checkBoxChangePreloadedQuestion() }, enable:false"/>Phrases</p>
+   
+   </div>
+   <div style="margin-left:auto; display:table-cell;">
+      <p><input type="checkbox" value="Category" data-bind="checked:QuestionViewModel.chkCategory, event: { change: checkBoxChangeOptions() }"/>Show Category</p>
+      <p><input type="checkbox" value="Romanji" data-bind="checked:QuestionViewModel.chkConjugate, event: { change: checkBoxChangeOptions() }"/>Show Romanji</p>
+      <p><input type="checkbox" value="RepeatQuestions" data-bind="checked:QuestionViewModel.chkRepeatQuestions, event: { change: checkBoxChangeOptions() }"/>Repeat Question</p>
+     <p><input type="checkbox" value="JapaneseToEnglish" data-bind="checked:QuestionViewModel.chkJapaneseToEnglish, event: { change: checkBoxChangeOptions() }, enable: true;"/>Japanese To English Questions</p>
+        <p><input type="checkbox" value="RandomNumber" data-bind="checked:QuestionViewModel.chkRandomNumber, event: { change: toggleRandomNumber() }, enable: true;"/>Random Number</p>
+     
+</div>
+
+   </div>
+  </div>
+ </div>
+</body>
