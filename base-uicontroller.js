@@ -27,7 +27,7 @@ function clearOutput()
 
 function AnswerQuestion()
 {
-	QuestionViewModel.DisplayEnglish(true);
+	QuestionViewModel.DisplayAnswer(true);
 	QuestionViewModel.State('Answered');
 }
 
@@ -58,15 +58,15 @@ function GetNext()
 
 function SetRomanjiVisibility()
 {
-  if(QuestionViewModel.chkRomanji())
+  if(QuestionViewModel.chkConjugate())
   {
-     QuestionViewModel.DisplayRomanjiQ(QuestionViewModel.chkJapaneseToEnglish());
-     QuestionViewModel.DisplayRomanjiA(!QuestionViewModel.chkJapaneseToEnglish());
+     QuestionViewModel.DisplayConjugateQ(QuestionViewModel.chkJapaneseToEnglish());
+     QuestionViewModel.DisplayConjugateA(!QuestionViewModel.chkJapaneseToEnglish());
   }
   else
   {
-     QuestionViewModel.DisplayRomanjiQ(false);
-     QuestionViewModel.DisplayRomanjiA(false);
+     QuestionViewModel.DisplayConjugateQ(false);
+     QuestionViewModel.DisplayConjugateA(false);
   }
 }
 
@@ -76,9 +76,9 @@ function process() //rename me please
 	QuestionViewModel.DisplayCard(true);
 	SetInitializationView();
 	ShowNextButton();
-	QuestionViewModel.DisplayJapanese(true);
+	QuestionViewModel.DisplayQuestion(true);
 	SetRomanjiVisibility();
-	QuestionViewModel.DisplayEnglish(false);
+	QuestionViewModel.DisplayAnswer(false);
 	QuestionViewModel.DisplayCategory(true);
 	QuestionViewModel.ShowNextButton (true);  
 	UpdateQuestionCounter();

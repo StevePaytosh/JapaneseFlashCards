@@ -9,25 +9,51 @@ function RemoveQuestion(q)
 function NextQuestion()
 {
   
-	var previousQuestion = 
-	  {
-		japanese: QuestionViewModel.japanese(),
-		romanji: QuestionViewModel.romanji(),
-		english: QuestionViewModel.english(),
-		category: QuestionViewModel.category()
-	  };
+	var previousQuestion = {};
+	
+	if(QuestionViewModel.chkJapaneseToEnglish() )
+	{
+		previousQuestion =
+		{
+			japanese: QuestionViewModel.question(),
+			romanji: QuestionViewModel.conjugate(),
+			english: QuestionViewModel.answer(),
+			category: QuestionViewModel.category()
+		};
+	}
+	else
+	{
+		previousQuestion =
+		{
+			japanese: QuestionViewModel.answer(),
+			romanji: QuestionViewModel.conjugate(),
+			english: QuestionViewModel.question(),
+			category: QuestionViewModel.category()
+		};
+	}
   
-	QuestionViewModel.japanese('');
-	QuestionViewModel.romanji('');
-	QuestionViewModel.english('');
+	QuestionViewModel.question('');
+	QuestionViewModel.conjugate('');
+	QuestionViewModel.answer('');
 	QuestionViewModel.category('');
 	
 	if(QuestionViewModel.questions().length > 0)
 	{
 		GetRandomQuestion();
-		while(QuestionViewModel.japanese === previousQuestion.japanese)
+		if(QuestionViewModel.chkJapaneseToEnglish() )
 		{
-			GetRandomQuestion();
+			while(QuestionViewModel.question === previousQuestion.japanese)
+			{
+				GetRandomQuestion();
+			}
+		}
+		else
+		{
+			while(QuestionViewModel.question === previousQuestion.english)
+			{
+				GetRandomQuestion();
+			}
+			
 		}
 	}
 	else
@@ -42,7 +68,7 @@ function NextQuestion()
 		return;
 	}
 
-	QuestionViewModel.DisplayEnglish(false);
+	QuestionViewModel.DisplayAnswer(false); //UI control
 
 	if(!QuestionViewModel.ShowNextButton())
 	{
@@ -85,7 +111,7 @@ function ReloadQuestions()
 	//QuestionViewModel.State('FileLoaded');
 	SetFileLoadedState();
 	SetFileLoadedView();
-	//QuestionViewModel.japanese('Questions Reloaded');
+	//QuestionViewModel.question('Questions Reloaded');
 	//QuestionViewModel.ShowNextButton(true);
 	//QuestionViewModel.ShowReloadButton(false);
 	HideReloadButton();
@@ -102,18 +128,27 @@ function GetRandomQuestion()
     {
 		var length=QuestionViewModel.questions().length;
 		var q = QuestionViewModel.questions()[Math.floor( Math.random()*length ) ];
-		QuestionViewModel.japanese(q.japanese);
-  
+		
 		if(typeof q.romanji==='undefined' || q.romanji == '')
 		{
-			QuestionViewModel.romanji('');
+			QuestionViewModel.conjugate('');
 		}
 		else
 		{
-			QuestionViewModel.romanji(' ('+q.romanji+')');
+			QuestionViewModel.conjugate(' ('+q.romanji+')');
 		}
-   
-		QuestionViewModel.english(q.english);
+		
+		if(QuestionViewModel.chkJapaneseToEnglish()) //this part might be UI
+		{
+			QuestionViewModel.answer(q.english);
+			QuestionViewModel.question(q.japanese);
+		}
+		else
+		{
+			QuestionViewModel.answer(q.japanese);
+			QuestionViewModel.question(q.english);
+		}
+		
 		QuestionViewModel.category(q.category);
   
 		if(!QuestionViewModel.chkRepeatQuestions())

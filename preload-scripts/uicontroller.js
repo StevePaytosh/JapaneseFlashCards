@@ -1,8 +1,8 @@
 var QuestionViewModel = function()
 {
-	QuestionViewModel.english = ko.observable('');
-	QuestionViewModel.romanji = ko.observable('');
-	QuestionViewModel.japanese = ko.observable('');
+	QuestionViewModel.answer = ko.observable('');
+	QuestionViewModel.conjugate = ko.observable('');
+	QuestionViewModel.question = ko.observable('');
 	QuestionViewModel.category = ko.observable('');
 	QuestionViewModel.State = ko.observable('');
 	QuestionViewModel.QuestionCounter = ko.observable(0);
@@ -10,11 +10,11 @@ var QuestionViewModel = function()
 	QuestionViewModel.ShowCenterButtons = ko.observable(false);
 	QuestionViewModel.ShowNextButton = ko.observable(true);
 	QuestionViewModel.ShowReloadButton = ko.observable(false);
-	QuestionViewModel.DisplayJapanese = ko.observable(true);
-	QuestionViewModel.DisplayEnglish = ko.observable(false);
-	QuestionViewModel.DisplayRomanji = false;
-	QuestionViewModel.DisplayRomanjiQ = ko.observable(false);
-	QuestionViewModel.DisplayRomanjiA = ko.observable(false);
+	QuestionViewModel.DisplayQuestion = ko.observable(true);
+	QuestionViewModel.DisplayAnswer = ko.observable(false);
+	QuestionViewModel.DisplayConjugate = false;
+	QuestionViewModel.DisplayConjugateQ = ko.observable(false);
+	QuestionViewModel.DisplayConjugateA = ko.observable(false);
 	QuestionViewModel.DisplayCategory = ko.observable(true);
 	QuestionViewModel.DisplayCard = ko.observable(true);
 	QuestionViewModel.questions = ko.observableArray();
@@ -44,7 +44,7 @@ var QuestionViewModel = function()
 	QuestionViewModel.chkWords = ko.observable(false);
 	QuestionViewModel.chkPhrases = ko.observable(false);
 	QuestionViewModel.chkCategory = ko.observable(true);
-	QuestionViewModel.chkRomanji = ko.observable(false);
+	QuestionViewModel.chkConjugate = ko.observable(false);
 	QuestionViewModel.chkQuestionCounter = ko.observable(false);
 	QuestionViewModel.chkRepeatQuestions = ko.observable(true);
 	QuestionViewModel.chkJapaneseToEnglish = ko.observable(true);
@@ -88,22 +88,22 @@ function checkBoxChangePreloadedQuestion()
 {
     var currentQuestion = 
       {
-        japanese: QuestionViewModel.japanese(),
-        english: QuestionViewModel.english(),
-        romanji: QuestionViewModel.romanji(),
+        japanese: QuestionViewModel.question(),
+        english: QuestionViewModel.answer(),
+        romanji: QuestionViewModel.conjugate(),
         category: QuestionViewModel.category(),
-        showAnswer: QuestionViewModel.DisplayEnglish(),
+        showAnswer: QuestionViewModel.DisplayAnswer(),
         questionState: QuestionViewModel.State()
       };
     
 	//MapQuestions();  //VSC  
 	LoadQuestions();
 
-    QuestionViewModel.japanese(currentQuestion.japanese);
-    QuestionViewModel.english(currentQuestion.english);
-    QuestionViewModel.romanji(currentQuestion.romanji);
+    QuestionViewModel.question(currentQuestion.japanese);
+    QuestionViewModel.answer(currentQuestion.english);
+    QuestionViewModel.conjugate(currentQuestion.romanji);
     QuestionViewModel.category(currentQuestion.category);
-    QuestionViewModel.DisplayEnglish(currentQuestion.showAnswer);
+    QuestionViewModel.DisplayAnswer(currentQuestion.showAnswer);
     QuestionViewModel.State(currentQuestion.questionState);
   
     checkBoxChangeDisplay();
@@ -251,18 +251,18 @@ function SaveSettings()
 function SetInitializationView()
 {
 	QuestionViewModel.category("Welcome");
-	QuestionViewModel.japanese("Load a Question Type To Begin");
-	QuestionViewModel.english("");
-	QuestionViewModel.romanji("");
+	QuestionViewModel.question("Load a Question Type To Begin");
+	QuestionViewModel.answer("");
+	QuestionViewModel.conjugate("");
 	QuestionViewModel.EnableNextButton(false);
 }
 
 function SetFileLoadedView()
 {
 	QuestionViewModel.category("Questions Loaded Successfully");
-	QuestionViewModel.japanese("Hit Next To Continue");
-	QuestionViewModel.english("");
-	QuestionViewModel.romanji("");
+	QuestionViewModel.question("Hit Next To Continue");
+	QuestionViewModel.answer("");
+	QuestionViewModel.conjugate("");
 	QuestionViewModel.EnableNextButton(true);
 	UpdateQuestionCounter();
 	ShowNextButton();
@@ -284,6 +284,6 @@ function EnableNextButton(val)
 function SetOutOfQuestionsView()
 {
 	QuestionViewModel.category("Out of Questions")
-	QuestionViewModel.japanese("Hit Reload or Select a new category");
-	QuestionViewModel.english("");
+	QuestionViewModel.question("Hit Reload or Select a new category");
+	QuestionViewModel.answer("");
 }

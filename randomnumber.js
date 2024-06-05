@@ -28,7 +28,7 @@ function getRandomNumberQuestion()
     }
   
   calculateNumberInJapanese(number);
-  QuestionViewModel.japanese(number);
+  QuestionViewModel.question(number);
   
 }
 
@@ -123,5 +123,12 @@ function calculateNumberInJapanese(number)
        };
      }
   
-    QuestionViewModel.english(answer);
+	if(QuestionViewModel.chkJapaneseToEnglish())
+	{
+		QuestionViewModel.answer(answer); //UI
+	}
+	else
+	{
+		QuestionViewModel.question(answer); //UI
+	}
 }

@@ -1,8 +1,8 @@
 var QuestionViewModel = function()
 {
-	QuestionViewModel.english = ko.observable('');
-	QuestionViewModel.romanji = ko.observable('');
-	QuestionViewModel.japanese = ko.observable('');
+	QuestionViewModel.answer = ko.observable('');
+	QuestionViewModel.conjugate = ko.observable('');
+	QuestionViewModel.question = ko.observable('');
 	QuestionViewModel.category = ko.observable('');
 	QuestionViewModel.State = ko.observable('');
 	QuestionViewModel.QuestionCounter = ko.observable(0);
@@ -10,12 +10,12 @@ var QuestionViewModel = function()
 	QuestionViewModel.ShowCenterButtons = ko.observable(false);
 	QuestionViewModel.ShowNextButton = ko.observable(false);
 	QuestionViewModel.ShowReloadButton = ko.observable(false);
-	QuestionViewModel.DisplayJapanese = ko.observable(true);
-	QuestionViewModel.DisplayEnglish = ko.observable(false);
+	QuestionViewModel.DisplayQuestion = ko.observable(true);
+	QuestionViewModel.DisplayAnswer = ko.observable(false);
 	QuestionViewModel.chkCategory = ko.observable(true);
-	QuestionViewModel.DisplayRomanji = false;
-	QuestionViewModel.DisplayRomanjiQ = ko.observable(false);
-	QuestionViewModel.DisplayRomanjiA = ko.observable(false);
+	QuestionViewModel.DisplayConjugate = false;
+	QuestionViewModel.DisplayConjugateQ = ko.observable(false);
+	QuestionViewModel.DisplayConjugateA = ko.observable(false);
 	QuestionViewModel.DisplayCategory = ko.observable(true);
 	QuestionViewModel.DisplayCard = ko.observable(true);
 	QuestionViewModel.questions = ko.observableArray();
@@ -24,7 +24,7 @@ var QuestionViewModel = function()
 	
 	QuestionViewModel.EnableNextButton = ko.observable(false);
 	QuestionViewModel.EnableFileLoadedQuestions = ko.observable(false);
-	QuestionViewModel.chkRomanji = ko.observable(false);
+	QuestionViewModel.chkConjugate = ko.observable(false);
 	QuestionViewModel.chkQuestionCounter = ko.observable(false);
 	QuestionViewModel.chkRepeatQuestions = ko.observable(true);
 	QuestionViewModel.chkJapaneseToEnglish = ko.observable(true);
@@ -38,9 +38,9 @@ var QuestionViewModel = function()
 function SetInitializationView()
 {
 	QuestionViewModel.category("Welcome");
-	QuestionViewModel.japanese("Load a File To Begin");
-	QuestionViewModel.english("");
-	QuestionViewModel.romanji("");
+	QuestionViewModel.question("Load a File To Begin");
+	QuestionViewModel.answer("");
+	QuestionViewModel.conjugate("");
 	QuestionViewModel.EnableNextButton(false);
 	QuestionViewModel.EnableFileLoadedQuestions(false);
 }
@@ -48,9 +48,9 @@ function SetInitializationView()
 function SetFileLoadedView()
 {
 	QuestionViewModel.category("File Loaded Successfully");
-	QuestionViewModel.japanese("Hit Next To Continue");
-	QuestionViewModel.english("");
-	QuestionViewModel.romanji("");
+	QuestionViewModel.question("Hit Next To Continue");
+	QuestionViewModel.answer("");
+	QuestionViewModel.conjugate("");
 	QuestionViewModel.EnableNextButton(true);
 	UpdateQuestionCounter();
 }
@@ -68,6 +68,6 @@ function DisableFileLoad()
 function SetOutOfQuestionsView()
 {
 	QuestionViewModel.category("Out of Questions")
-	QuestionViewModel.english("");
-	QuestionViewModel.japanese("");
+	QuestionViewModel.answer("");
+	QuestionViewModel.question("");
 }

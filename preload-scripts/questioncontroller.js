@@ -26,7 +26,7 @@ function ShouldGetSpecialQuestionType()
 function GetSpecialQuestionType()
 {
 	 GetRandomQuestion(); //VSC
-    while(QuestionViewModel.japanese === previousQuestion.japanese)
+    while(QuestionViewModel.question === previousQuestion.japanese)
     {
      GetRandomQuestion(); //VSC
     }
