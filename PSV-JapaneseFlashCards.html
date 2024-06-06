@@ -8,8 +8,8 @@
 	  <script type="text/javascript" src="io.js" ></script>
       <script type="text/javascript" src="base-uicontroller.js" ></script>
 	  <script type="text/javascript" src="base-questioncontroller.js" ></script>
-	  <script type="text/javascript" src="csv-scripts/uicontroller.js" ></script>
-	  <script type="text/javascript" src="csv-scripts/questioncontroller.js" ></script>
+	  <script type="text/javascript" src="psv-scripts/uicontroller.js" ></script>
+	  <script type="text/javascript" src="psv-scripts/questioncontroller.js" ></script>
 
 	  
 	  <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -57,7 +57,7 @@
 		<p><input type="checkbox" value="JapaneseToEnglish" data-bind="checked:QuestionViewModel.chkJapaneseToEnglish, event: { change: checkBoxChangeOptions() }, enable: true;"/>Japanese To English Questions</p>
 	</div>
 		<input type="file" id="fileInput" name="files[]"  /> <p>
-		<button id="run" data-bind="click:processFile, visible: true, enable: QuestionViewModel.EnableFileLoadedQuestions()">Load CSV</button><br> 
+		<button id="run" data-bind="click:processFile, visible: true, enable: QuestionViewModel.EnableFileLoadedQuestions()">Load PSV</button><br> 
 	</div>
   </div>
   
