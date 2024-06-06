@@ -8,23 +8,35 @@ Beer-ware by Steven Paytosh
 
 **ABOUT**
 
-The Japanese Flash Card App takes in a Comma Separated Values (CSV) of  question and answer style notes.
+The Japanese Flash Card App generates flash card questions based on either hard-coded inputs or by taking in a Pipe Separated Values (PSV) file.
 
-For the time being, notes must be as questions then answer.
+* Questions may come in the form of Kanji, Katakana, Hiragana, Romanji or a mix of these depending on the category and how the questions are written
+* Questions will typically indicate a category to help give context to the question being asked
+* The next button can be used to reveal the answer to a question as well as to load the next question when available
+* A romanji assist may be available for question, but will only be shown when the romanji option is selected
+* There is an option to switch the Question and Answer display, so that the (typically) english answer will become the question. This can be a usefull study technique to assist with learning.
+* A question counter is availble, currently it only shows when the option to remove questions is selected. As you progress questions will not repeat (unless it was written more than once), the counter will then tell you how many questions remain in the set
 
-Once you have loaded a CSV, hitting the "Next" button will bring up a new questions. Hitting "Next" again will answer the question
 
-Questions will be presented randomly, with a non-random option being in the works.
+**Loading a PSV File**
 
-The Master/Trunk branch of this repo is called senpai, for obvious reasons.
+If you have a PSV available to study, you will be able to select the browse button and you can then select your file. Hitting Load PSV will read your file and generate your flash cards. 
+
+**WRITING A PSV**
+A PSV replicates a data table (think excel or a similar spread sheet application).
+To write a PSV, you create the data one row at a time with each row separated by a pipe "|". Each row is separated by a new-line (the same as hitting enter).
 
 **DOWNLOAD AND RUN**
+To Download and run the application, all you have to do is clone the repository and open up a JapaneseFlashCard instance in your favorite browser.
 
-To Download and run the application, all you have to do is clone the repository and open up the JapaneseFlashCard file in your favorite browser.
+**Codepen Deployments**
+Instances of this app are currently deployed to Codepen and are partially controlled by files hosted on this repo
 
-**WRITING A CSV**
+currently there are 2 deployments
+[Preload-JapaneseFlashCards](https://codepen.io/StevePaytosh/full/RwdZOep)
+[PSV-JapaneseFlashCards](https://codepen.io/StevePaytosh/full/JjVVdzb)
 
-A CSV replicates a data table (think excel or a similar spread sheet application).
-
-To write a CSV, you create the data one row at a time with each row separated by a comma ",". Each row is separated by a new-line (the same as hitting enter).
+**This REPO**
+This is a open source project open to contributions from developers and Japanese speakers who might wish to contribute content. Please feel free to reach out if you are interested in contributing.
+The Master/Trunk branch of this repo is called senpai...for obvious reasons.
 
