@@ -1,12 +1,12 @@
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@19c8a863890d0bf4e422948bb809f5c9e3742913/stylesheet.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/preload-scripts/preloadedquestions.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/base-preloadedquestions.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/base-questioncontroller.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/base-script.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/base-uicontroller.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/preload-scripts/questioncontroller.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/preload-scripts/uicontroller.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@74928eb96700a082a7fea468437f633aff6be788/randomnumber.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@19c8a863890d0bf4e422948bb809f5c9e3742913/preload-scripts/preloadedquestions.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@19c8a863890d0bf4e422948bb809f5c9e3742913/base-preloadedquestions.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@19c8a863890d0bf4e422948bb809f5c9e3742913/base-questioncontroller.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@19c8a863890d0bf4e422948bb809f5c9e3742913/base-script.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@19c8a863890d0bf4e422948bb809f5c9e3742913/base-uicontroller.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@19c8a863890d0bf4e422948bb809f5c9e3742913/preload-scripts/questioncontroller.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@19c8a863890d0bf4e422948bb809f5c9e3742913/preload-scripts/uicontroller.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@19c8a863890d0bf4e422948bb809f5c9e3742913/randomnumber.js"></script>

@@ -1,11 +1,4 @@
 # Japanese Flash Cards
-
-Beer-ware by Steven Paytosh
-
-* This software is free, but if you see me feel free to buy me a beer (cold soft drinks are also acceptable)
-
-----
-
 **ABOUT**
 
 The Japanese Flash Card App generates flash card questions based on either hard-coded inputs or by taking in a Pipe Separated Values (PSV) file.
@@ -23,20 +16,26 @@ The Japanese Flash Card App generates flash card questions based on either hard-
 If you have a PSV available to study, you will be able to select the browse button and you can then select your file. Hitting Load PSV will read your file and generate your flash cards. 
 
 **WRITING A PSV**
+
 A PSV replicates a data table (think excel or a similar spread sheet application).
 To write a PSV, you create the data one row at a time with each row separated by a pipe "|". Each row is separated by a new-line (the same as hitting enter).
 
 **DOWNLOAD AND RUN**
+
 To Download and run the application, all you have to do is clone the repository and open up a JapaneseFlashCard instance in your favorite browser.
 
-**Codepen Deployments**
+**CODEPEN DEPLOYMENTS**
+
 Instances of this app are currently deployed to Codepen and are partially controlled by files hosted on this repo
 
 currently there are 2 deployments
+
 [Preload-JapaneseFlashCards](https://codepen.io/StevePaytosh/full/RwdZOep)
+
 [PSV-JapaneseFlashCards](https://codepen.io/StevePaytosh/full/JjVVdzb)
 
-**This REPO**
+**THIS REPO**
+
 This is a open source project open to contributions from developers and Japanese speakers who might wish to contribute content. Please feel free to reach out if you are interested in contributing.
 The Master/Trunk branch of this repo is called senpai...for obvious reasons.
 
