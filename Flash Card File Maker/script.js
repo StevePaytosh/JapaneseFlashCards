@@ -58,9 +58,12 @@ var QuestionModel = function(question)
     //};
 };
  
-var viewModel = new QuestionModel([
-]);
-ko.applyBindings(viewModel);
+ $(document).ready(function()
+ {	 
+	var doc;
+	var viewModel = new QuestionModel([]);
+	ko.applyBindings(viewModel);
+ });
  
 // Activate jQuery Validation
 //$("form").validate({ submitHandler: viewModel.save });
