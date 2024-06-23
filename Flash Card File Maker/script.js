@@ -1,69 +1,54 @@
 var PSVModel = function()
 {
-  PSVModel.category = observable();  
+  PSVModel.category = ko.observable("");  
+  PSVModel.questions = ko.observableArray();
+  PSVModel.output = ko.computed({read:calculateOutput,pure:true});  
+  PSVModel.displayOutput = ko.observable(false);
+  
 }
 
-var QuestionModel = function(question) 
+function addQuestionRow()
 {
-    var self = this;
-    self.questions = ko.observableArray(question);
-    self.displayOutput = ko.observable(false);
-    self.output = ko.computed(function()
-    {
-      var r="";
-          for(let i =0; i<self.questions().length; i++)
-          {
-            r += self.getPSVRow(i)+'<br>';
-          }
-      return r;
-    });
-    
-  self.getPSVRow = function(row)
-  {
-    return 
-    self.questions()[row].kana+"|"+self.questions()[row].kanji+"|"+self.questions()[row].romanji+"|"+self.questions()[row].english+"|"+PSVModel.category;
-  };
-  
-    self.showOutput = function()
-    {
-      if(self.displayOutput())
-        {
-          //turn off
-          self.displayOutput(false);
-        }
-      else
-        {
-          //turn on
-          self.displayOutput(true);
-        }
-    };
-  
-    self.addQuestion = function() {
-        self.questions.push({
-            kana: "",
-            kanji:"",
-            romanji: "",
-            english:""
-        });
-    };
- 
-    self.removeQuestion = function(question) {
-        self.questions.remove(question);
-    };
- 
+	PSVModel.questions.push(
+		{
+			kana: ko.observable(""),
+			kanji: ko.observable(""),
+			romanji: ko.observable(""),
+			english: ko.observable("")
+		}
+	); 
+}
 
-  //  self.save = function(form) {
-  //      alert("Could now transmit to server: " + ko.utils.stringifyJson(self.gifts));
-        // To actually transmit to server as a regular form post, write this: ko.utils.postJson($("form")[0], self.gifts);
-    //};
-};
+function removeQuestion(question)
+{
+	console.log(question);
+	PSVModel.questions.remove(question);
+}
+ 
+ function clickOutputBtn()
+ {
+	PSVModel.displayOutput( !PSVModel.displayOutput() );
+ }
+ 
+ function calculateOutput()
+ {
+	  var rowResult="";
+          for(let row =0; row<PSVModel.questions().length; row++)
+          {
+            rowResult += getPSVRow(row)+'<br>';
+          }
+      return rowResult;
+ }
+ 
+  function getPSVRow(row)
+  {
+    return PSVModel.questions()[row].kana()+"|"+PSVModel.questions()[row].kanji()+"|"+PSVModel.questions()[row].romanji()+"|"+PSVModel.questions()[row].english()+"|"+PSVModel.category();
+  };
  
  $(document).ready(function()
  {	 
 	var doc;
-	var viewModel = new QuestionModel([]);
+	var viewModel = new PSVModel([]);
 	ko.applyBindings(viewModel);
  });
  
-// Activate jQuery Validation
-//$("form").validate({ submitHandler: viewModel.save });

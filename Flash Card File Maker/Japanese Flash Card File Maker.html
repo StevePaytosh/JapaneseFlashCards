@@ -11,14 +11,18 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 <body>
-<button data-bind='click: addQuestion'>Add Question</button>
-   <button data-bind='click: showOutput'>Show Output</button>
+<div class="section">
+	<button data-bind='click: addQuestionRow'>Add Question</button>
+	<button data-bind='click: clickOutputBtn'>Show Output</button>
+</div>
 
-<h2>Category</h2>
-<input type="text" data-bind="value:PSVModel.category"/>
+<div class="section">
+	<h2>Category</h2>
+	<input type="text" data-bind="value:PSVModel.category"/>
+</div>
 
-
-  <table data-bind='visible: questions().length > 0'>
+<div class="section">
+  <table data-bind='visible: PSVModel.questions().length > 0'>
         <thead>
             <tr>
                 <th>Japanese</th>
@@ -28,21 +32,26 @@
                 <th />
             </tr>
         </thead>
-        <tbody data-bind='foreach: questions'>
+        <tbody data-bind='foreach: PSVModel.questions()'>
             <tr>
-                <td><input class='required' data-bind='value:kana' /></td>
+                <td><input class="required" data-bind="value:kana" /></td>
                 <td><input class='required' data-bind='value:kanji' /></td>
                 <td><input  data-bind='value: romanji' /></td>
                 <td><input class='required' data-bind='value: english' /></td>
-                <td><a href='#' data-bind='click: $root.removeQuestion'>Delete</a></td>
+                <td><a href='#' data-bind='click: removeQuestion'>Delete</a></td>
             </tr>
         </tbody>
-    </table>  
+    </table>
+</div>
+
   <p>
-<div data-bind="visible:displayOutput" style="width: auto; display:inline-block;">
-  <h2>Output</h2>
-  <div style="border-color:black; border-style:solid; border-width:1px;">
-      <textbox data-bind='html: output' />
-  </div>
-</div> 
+
+<div class="section">
+	<div data-bind="visible:PSVModel.displayOutput" style="width: auto; display:inline-block;">
+		<h2>Output</h2>
+		<div style="border-color:black; border-style:solid; border-width:1px;">
+			<textbox data-bind='html: PSVModel.output' />
+		</div>
+	</div> 
+</div>
 </body>
