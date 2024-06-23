@@ -45,21 +45,44 @@ function removeQuestion(question)
     return PSVModel.questions()[row].kana()+"|"+PSVModel.questions()[row].kanji()+"|"+PSVModel.questions()[row].romanji()+"|"+PSVModel.questions()[row].english()+"|"+PSVModel.category();
   };
  
- function copyText() {
-  // Get the text field
-  var copyText = PSVModel.output();
-
-  // Select the text field
-  //copyText.select();
-  //copyText.setSelectionRange(0, 99999); // For mobile devices
-
-	copyText = copyText.replaceAll("<br>","\n");
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText);
-
-  // Alert the copied text
- // alert("Copied the text: " + copyText.value);
+function copyText() {
+  
+	var copyText = getFormatedOutput();
+    //copyText.setSelectionRange(0, 99999); // For mobile devices
+    navigator.clipboard.writeText(copyText);
 }
+
+function getFormatedOutput()
+{
+	 var copyText = PSVModel.output();
+	 copyText = copyText.replaceAll("<br>","\n");
+	 return copyText;
+}
+
+function clickSaveFileBtn()
+{
+	var outputText = getFormatedOutput();
+	var filename = "";
+	if(PSVModel.category() != "")
+	{
+		fileName = PSVModel.category()+".txt";
+	}
+	download(fileName,outputText);
+   
+}
+
+function download(file, text) 
+{
+	var element = document.createElement('a');
+	element.setAttribute('href',
+	'data:text/plain;charset=utf-8,'
+	+ encodeURIComponent(text));
+	element.setAttribute('download', file);
+	document.body.appendChild(element);
+	element.click();
+	document.body.removeChild(element);
+}
+         
  
  $(document).ready(function()
  {	 
