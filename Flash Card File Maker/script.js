@@ -45,6 +45,22 @@ function removeQuestion(question)
     return PSVModel.questions()[row].kana()+"|"+PSVModel.questions()[row].kanji()+"|"+PSVModel.questions()[row].romanji()+"|"+PSVModel.questions()[row].english()+"|"+PSVModel.category();
   };
  
+ function copyText() {
+  // Get the text field
+  var copyText = PSVModel.output();
+
+  // Select the text field
+  //copyText.select();
+  //copyText.setSelectionRange(0, 99999); // For mobile devices
+
+	copyText = copyText.replaceAll("<br>","\n");
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText);
+
+  // Alert the copied text
+ // alert("Copied the text: " + copyText.value);
+}
+ 
  $(document).ready(function()
  {	 
 	var doc;
