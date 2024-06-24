@@ -30,12 +30,25 @@ function removeQuestion(question)
 	PSVModel.displayOutput( !PSVModel.displayOutput() );
  }
  
- function calculateOutput()
+ function calculateOutput(format="html")
  {
 	  var rowResult="";
           for(let row =0; row<PSVModel.questions().length; row++)
           {
-            rowResult += getPSVRow(row)+'<br>';
+            rowResult += getPSVRow(row);
+			if( (row+1) < PSVModel.questions().length)
+			{
+				if(format === "html")
+				{
+					rowResult+="<br>";
+				}
+				
+				if(format === "newline")
+				{
+					console.log("newline");
+					rowResult+="\n"
+				}
+			}
           }
       return rowResult;
  }
@@ -47,21 +60,14 @@ function removeQuestion(question)
  
 function copyText() {
   
-	var copyText = getFormatedOutput();
+	var copyText = calculateOutput("newline");
     //copyText.setSelectionRange(0, 99999); // For mobile devices
     navigator.clipboard.writeText(copyText);
 }
 
-function getFormatedOutput()
-{
-	 var copyText = PSVModel.output();
-	 copyText = copyText.replaceAll("<br>","\n");
-	 return copyText;
-}
-
 function clickSaveFileBtn()
 {
-	var outputText = getFormatedOutput();
+	var outputText = calculateOutput("newline");
 	var filename = "";
 	if(PSVModel.category() != "")
 	{
