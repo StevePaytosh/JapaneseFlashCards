@@ -6,7 +6,6 @@ function checkBoxChangeOptions(category)
 
 function checkBoxChangeDisplay()
 {
-	 QuestionViewModel.DisplayCategory(QuestionViewModel.chkCategory());
 	 SetRomanjiVisibility();
 	 QuestionViewModel.DisplayQuestionCounter(!QuestionViewModel.chkRepeatQuestions());
 }
@@ -52,7 +51,6 @@ function GetNext()
 		deafault: break;
 	}
   
-	QuestionViewModel.DisplayCategory(QuestionViewModel.chkCategory());
 	SetRomanjiVisibility();
 }
 
@@ -79,7 +77,6 @@ function process() //rename me please
 	QuestionViewModel.DisplayQuestion(true);
 	SetRomanjiVisibility();
 	QuestionViewModel.DisplayAnswer(false);
-	QuestionViewModel.DisplayCategory(true);
 	QuestionViewModel.ShowNextButton (true);  
 	UpdateQuestionCounter();
 	QuestionViewModel.State('FileLoaded');

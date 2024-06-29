@@ -26,7 +26,7 @@
 <br>  
 	<div id="out" data-bind="visible: QuestionViewModel.DisplayCard()">
 		<div id="counter" data-bind="text: QuestionViewModel.QuestionCounter()"></div>
-		<div id="category" data-bind="text:QuestionViewModel.category(),  visible: QuestionViewModel.DisplayCategory()"></div>
+		<div id="category" data-bind="text:QuestionViewModel.category()"></div>
 		<div id="question-header" class="header">Q</div>
 		<div id="question" class="information" data-bind="text:QuestionViewModel.question(), visible: QuestionViewModel.DisplayQuestion()"></div>
 		<div id="answer-header" class="header" >A</div>

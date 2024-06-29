@@ -16,7 +16,6 @@ var QuestionViewModel = function()
 	QuestionViewModel.DisplayConjugate = false;
 	QuestionViewModel.DisplayConjugateQ = ko.observable(false);
 	QuestionViewModel.DisplayConjugateA = ko.observable(false);
-	QuestionViewModel.DisplayCategory = ko.observable(true);
 	QuestionViewModel.DisplayCard = ko.observable(true);
 	QuestionViewModel.questions = ko.observableArray();
 	QuestionViewModel.removedQuestions = ko.observableArray();

@@ -174,3 +174,39 @@ function addKatakanaHandakuten()
 	addQuestion('ポ','','Po','Katakana');
 }
 
+function addKanji()
+{
+	addQuestion('一','ichi','one','Kanji');
+	addQuestion('二','ni','two','Kanji');
+	addQuestion('三','san','three','Kanji');
+
+	addQuestion('四','yon','four','Kanji');
+	addQuestion('五','go','five','Kanji');
+	addQuestion('六','roku','six','Kanji');
+	addQuestion('七','nana/shichi','seven','Kanji');
+	addQuestion('八','hachi','eight','Kanji');
+	addQuestion('九','kyuu','nine','Kanji');
+	addQuestion('十','ju','ten','Kanji');
+
+	addQuestion('半','han','-thirty (half past the hour)','Kanji');
+	addQuestion('卵','tamago','egg','Kanji');
+	addQuestion('山','yama','mountain','Kanji');
+	addQuestion('中','naka','inside','Kanji');
+	addQuestion('肉','niku','meat','Kanji');
+	addQuestion('父','chichi','(my) dad','Kanji');
+	addQuestion('母','haha','(my) mom','Kanji'); 
+	addQuestion('食','tabe','eat','Kanji'); 
+	addQuestion('百','hyaku','hundred','Kanji'); 
+	addQuestion('千','sen','thousand','Kanji');
+	addQuestion('万','man','ten-thousand','Kanji');
+	addQuestion('円','','yen','Kanji');
+	//addQuestion('木','yon','three','Kanji');
+	//addQuestion('土','yon','three','Kanji');
+	//addQuestion('金','yon','three','Kanji');
+	//addQuestion('日','yon','three','Kanji');
+	addQuestion('月','getsu','month','Kanji');
+	addQuestion('彼 ','kare','He','Kanji');
+	addQuestion('今','ima','Now','Kanji');
+	addQuestion('私','watashi','I','Kanji');
+	addQuestion('家 ','ie','Home','Kanji');
+}
