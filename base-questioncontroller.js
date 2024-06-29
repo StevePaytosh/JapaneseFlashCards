@@ -102,18 +102,11 @@ function addQuestion(j,r,e,category='')
 
 function ReloadQuestions()
 {
-	//QuestionViewModel.ShowReloadButton(true);
 	LoadQuestions();
 	ClearRemovedQuestions();
-	//QuestionViewModel.removedQuestions = ko.observableArray(); 
-	//QuestionViewModel.QuestionCounter(QuestionViewModel.questions().length);
 	UpdateQuestionCounter();
-	//QuestionViewModel.State('FileLoaded');
 	SetFileLoadedState();
 	SetFileLoadedView();
-	//QuestionViewModel.question('Questions Reloaded');
-	//QuestionViewModel.ShowNextButton(true);
-	//QuestionViewModel.ShowReloadButton(false);
 	HideReloadButton();
 	ShowNextButton();
 }

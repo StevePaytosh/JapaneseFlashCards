@@ -1,3 +1,15 @@
+#counter
+{
+	color:red;
+	font-size: 25px;
+	text-align:center;
+	grid-column: 1/span 1;
+	grid-row: 1;
+	font-size:20pt;
+	background-color: white;
+	margin-top: 15%;
+}
+
 .header
 {
   color: white;
