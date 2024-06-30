@@ -1,0 +1,44 @@
+body{
+	background-color: white;
+	padding: 1rem;
+}
+
+.input
+{
+  width: 150px;
+}
+
+.repeaterButton
+{
+  width: 25pt;
+  color: white;
+  font-size: 25pt;
+  font-weight: bold;
+  text-align:center;
+  border-radius: 25pt;
+}
+
+#addRow
+{
+  background-color:green;
+}
+
+#output
+{
+  width:600px;
+}
+
+/** #removeRow
+ {
+  background-color:red;  
+}
+ **/
+#inputHeader
+{
+  
+}
+
+.section
+{
+	margin: 5px;
+}
