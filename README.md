@@ -48,7 +48,7 @@ This is a open source project open to contributions from developers and Japanese
 
 The top level branch for this project is trunk
 
-Below the trunk branch are several -senpai branches used for funneling specific types of changes. Changes should go into a -senpai branch when it can then be merged into trunk.
+Below the trunk branch are several -senpai branches used for funneling specific types of changes. Changes should go into a -senpai branch where it can then be merged into trunk.
 
 * bug-fixes-senpai: bug fixes should be merged into this branch
 * content-senpai: content updates for PSV files and Preloaded Questions as well as for ReadMe updates
