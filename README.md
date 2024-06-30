@@ -20,6 +20,10 @@ If you have a PSV available to study, you will be able to select the browse butt
 A PSV replicates a data table (think excel or a similar spread sheet application).
 To write a PSV, you create the data one row at a time with each row separated by a pipe "|". Each row is separated by a new-line (the same as hitting enter).
 
+**Making a PSV File with Japanese Flash Card File Maker**
+
+Included in the repo is a application to assist with making PSV files. The app allows you to enter multiple rows of data, where it can then convert the data into text that can be coppied into a manualy made PSV file or can be downloaded directly from the page itself with the correct formatting.
+
 **DOWNLOAD AND RUN**
 
 To Download and run the application, all you have to do is clone the repository and open up a JapaneseFlashCard instance in your favorite browser.
@@ -33,6 +37,8 @@ currently there are 2 deployments
 [Preload-JapaneseFlashCards](https://codepen.io/StevePaytosh/full/RwdZOep)
 
 [PSV-JapaneseFlashCards](https://codepen.io/StevePaytosh/full/JjVVdzb)
+
+[File Maker](https://codepen.io/StevePaytosh/full/bGyNMEY)
 
 **THIS REPO**
 
