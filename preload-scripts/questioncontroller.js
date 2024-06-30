@@ -14,7 +14,7 @@ function LoadQuestions() //version specific
     if(QuestionViewModel.chkPhrases()){addPhrases();}
 	
 	EnableNextButton(QuestionViewModel.questions().length>0);
-	
+	UpdateQuestionCounter()
 	
 };
 

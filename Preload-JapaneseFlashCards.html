@@ -13,7 +13,7 @@
 	  <script type="text/javascript" src="preloaded-scripts/preloadedquestions.js" ></script>
 	  <script type="text/javascript" src="randomnumber.js" ></script>
 
-	  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+	  <link rel="stylesheet" type="text/css" href="base-stylesheet.css">
 </head>
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -23,22 +23,18 @@
 <div class="s">
 <div id="title">Japanese Flash Cards</div>
 <p>
-<br>
-  <div data-bind=" visible: QuestionViewModel.DisplayQuestionCounter()" style="margin-left: 20px; color:red; font-size: 25px; text-align:center;">
-  Questions Remaining: 
-<span data-bind="text: QuestionViewModel.QuestionCounter()"/>
-</div>
-  
-  <div id="out" data-bind="visible: QuestionViewModel.DisplayCard()">
-   <div id="category" data-bind="text:QuestionViewModel.category(),  visible: QuestionViewModel.DisplayCategory()"></div>
-   <div id="question-header" class="header">Q</div>
-  <div id="question" class="information" data-bind="text:QuestionViewModel.question(), visible: QuestionViewModel.DisplayQuestion()"></div>
-   <div id="answer-header" class="header" >A</div>
-  <div id="answer" class="information" data-bind="text:QuestionViewModel.answer(), visible: QuestionViewModel.DisplayAnswer()"></div>
-    <div id="question-addon" class="addon" data-bind="text:QuestionViewModel.conjugate(), visible: QuestionViewModel.DisplayConjugateQ()"> </div>
-    <div id="answer-addon" class="addon" data-bind="text:QuestionViewModel.conjugate(), visible: QuestionViewModel.DisplayConjugateA()"></div>
-  </div>
-  
+<br>  
+	<div id="out" data-bind="visible: QuestionViewModel.DisplayCard()">
+		<div id="counter" data-bind="text: QuestionViewModel.QuestionCounter()"></div>
+		<div id="category" data-bind="text:QuestionViewModel.category()"></div>
+		<div id="question-header" class="header">Q</div>
+		<div id="question" class="information" data-bind="text:QuestionViewModel.question(), visible: QuestionViewModel.DisplayQuestion()"></div>
+		<div id="answer-header" class="header" >A</div>
+		<div id="answer" class="information" data-bind="text:QuestionViewModel.answer(), visible: QuestionViewModel.DisplayAnswer()"></div>
+		<div id="question-addon" class="addon" data-bind="text:QuestionViewModel.conjugate(), visible: QuestionViewModel.DisplayConjugateQ()"> </div>
+		<div id="answer-addon" class="addon" data-bind="text:QuestionViewModel.conjugate(), visible: QuestionViewModel.DisplayConjugateA()"></div>
+	</div>
+
 <div id="centerButtons" data-bind="visible:QuestionViewModel.ShowCenterButtons()">
 <button class="centerButton" type="text" id="Next" data-bind="click:GetNext, visible:QuestionViewModel.ShowNextButton(),enable: QuestionViewModel.EnableNextButton()">Next</button><br>
 <button class="centerButton" type="text" id="Reload" data-bind="click:ReloadQuestions, visible:QuestionViewModel.ShowReloadButton()">Reload Questions</button><br>
