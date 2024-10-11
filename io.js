@@ -1,5 +1,15 @@
 function run_file(doc,start, end)
 {
+	//parse json
+	var resp = parseJSON();
+	//use json response to populate master list
+	for (const key in resp)
+	{
+		addQuestionJSON(key); //handle json specific question to populate master list
+		console.log(key);
+	}
+		
+	/*
 	for(var i=start;i<end;i++)
 	{
 		doc[i]=doc[i].trim();
@@ -24,6 +34,7 @@ function run_file(doc,start, end)
 	{
 		SetFileLoadedView();
 	}
+	*/
 }
 
  window.onload = function() {
@@ -58,3 +69,4 @@ function processFile()
 	run_file(doc,0,doc.length);
 	MapQuestions();
 }
+
