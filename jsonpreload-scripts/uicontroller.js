@@ -19,6 +19,8 @@ var QuestionViewModel = function()
 	QuestionViewModel.questions = ko.observableArray();
 	QuestionViewModel.removedQuestions = ko.observableArray();
 	QuestionViewModel.externalQuestions = ko.observableArray();
+	QuestionViewModel.Categories = ko.observableArray();
+	QuestionViewModel.CurrentQuestion = ko.observable();
   
 	QuestionViewModel.EnableHiragana = ko.observable(true);
 	QuestionViewModel.EnableHiraganaDakuten = ko.observable(true);
@@ -31,7 +33,7 @@ var QuestionViewModel = function()
 	QuestionViewModel.EnableWords = ko.observable(false);
 	QuestionViewModel.EnablePhrases = ko.observable(false);
 	QuestionViewModel.EnableNextButton = ko.observable(false);
-
+	
 	QuestionViewModel.chkHiragana = ko.observable(false);
 	QuestionViewModel.chkHiraganaDakuten = ko.observable(false);
 	QuestionViewModel.chkHiraganaHandakuten = ko.observable(false);
@@ -80,11 +82,13 @@ function setDefaultSettings()
 
 	QuestionViewModel.chkHiragana(true);
 	QuestionViewModel.chkiraganaNumbers(true);
+	LoadQuestions();
 }
 
 
 function checkBoxChangePreloadedQuestion()
 {
+	
     var currentQuestion = 
       {
         japanese: QuestionViewModel.question(),
@@ -94,9 +98,10 @@ function checkBoxChangePreloadedQuestion()
         showAnswer: QuestionViewModel.DisplayAnswer(),
         questionState: QuestionViewModel.State()
       };
+	  
     
 	//MapQuestions();  //VSC  
-	LoadQuestions();
+	//LoadQuestions();
 
     QuestionViewModel.question(currentQuestion.japanese);
     QuestionViewModel.answer(currentQuestion.english);

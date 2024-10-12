@@ -2,10 +2,7 @@ function LoadQuestions() //version specific
 {
 	ClearQuestions();
 	loadJSONQuestions();
-//	addjsondb();
- //   if(QuestionViewModel.chkHiraganaNumbers()) {addNumbers();}
  
-	
 	EnableNextButton(QuestionViewModel.questions().length>0);
 	UpdateQuestionCounter()
 	
@@ -29,15 +26,45 @@ function MapQuestions()
 {
 }
 
-function addQuestionJSON(json)
+function createQuestionModel(json)
 {
-	 var question=
-  {
-    japanese: json.japanese,
-      romanji: json.romanji,
-    english: json.english,
-    category: json.category
-  };
+	var question=
+	{
+	japanese: json.japanese,
+	romanji: json.romanji,
+	english: json.english,
+	category: json.category
+	};
+	
+	return question;
+}
+
+function addQuestionJSON(question)
+{
   
 	QuestionViewModel.questions.push(question);
+	
+}
+
+function addCategory(question, isSelected = false)
+{
+	if(!checkIfCategoryExists(question.category) )
+	{
+		var category=
+		{
+			name: question.category,
+			selected: isSelected
+		};
+		
+		QuestionViewModel.Categories.push(category);
+		
+	}
+}
+
+function checkIfCategoryExists(categoryName) {
+    var match = ko.utils.arrayFirst(QuestionViewModel.Categories(), function(item) {
+        return item.name === categoryName;
+    });
+	
+	return match !== undefined;
 }

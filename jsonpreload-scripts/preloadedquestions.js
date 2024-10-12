@@ -1,19 +1,3 @@
-/*function addjsondb()
-{
-	var questionsdb =
-'
-	{"japanese":"こにちわ","romanji":"konichiwa","english":"hello"},
-	{"japanese":"こわいい","romanji":"kowaii","english":"scary"},
-	{"japanese":"かこいい","romanji":"kokoii","english":"scary"}
-';
-	var dbquestions = JSON.parse(questionsdb);
-	
-	for(const key in dbquestions)
-	{
-		addQuestion(key.kanji,key.romanji,key.english,key.category);
-	}
-}
-*/
 
 function loadJSONQuestions()
 {
@@ -29,14 +13,16 @@ function loadJSONQuestions()
 	
 	for (let i = 0; i < json.length; i++) 
 	{
-		addQuestionJSON(json[i]);
+		var question = createQuestionModel(json[i]);
+		addQuestionJSON(question);
+		addCategory(question);
 	}
 }
 
 function parseJSON()
 {
 	//const json2 = '{"questions":{"japanese":"こにちわ","romanji":"konichiwa","english":"hello"},{"japanese":"こわいい","romanji":"kowaii","english":"scary"},{"japanese":"かこいい","romanji":"kokoii","english":"scary"}}';
-	var json2 = [{"japanese":"こにちわ","romanji":"konichiwa","english":"hello","category":"test"},{"category":"test","japanese":"こわいい","romanji":"kowaii","english":"scary"},{"category":"test1","japanese":"かこいい","romanji":"kokoii","english":"scary"}];
+	var json2 = [{"japanese":"こにちわ","romanji":"konichiwa","english":"hello","category":"word"},{"category":"word","japanese":"こわいい","romanji":"kowaii","english":"scary"},{"category":"kanji","japanese":"じゅ","romanji":"juu","english":"ten","kanji":"十"},{"category":"hiragana","japanese":"か","romanji":"ka","english":"ka"}];
 	//return JSON.parse(json2);
 	//return JSON.stringify(json2);
 	return json2;
