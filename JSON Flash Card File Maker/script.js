@@ -3,6 +3,8 @@ var JSONModel = function()
   JSONModel.questions = ko.observableArray();
   JSONModel.output = ko.computed({read:calculateOutput,pure:true});  
   JSONModel.displayOutput = ko.observable(false);
+  JSONModel.displayInput = ko.observable(false);
+  JSONModel.JSONInput = ko.observable("");
   
 }
 
@@ -19,6 +21,33 @@ function addQuestionRow()
 	); 
 }
 
+function addQuestion(json)
+{
+	JSONModel.displayInput(false);
+	
+	JSONModel.questions.push(
+		{
+			kana: json.japanese,
+			kanji: json.kanji,
+			romanji: json.romanji,
+			english: json.english,
+			category: json.category
+		}
+	); 	
+}
+
+function addJSON()
+{
+	JSONModel.questions([]);
+	
+	var input = JSON.parse(JSONModel.JSONInput());
+	console.log("Input: "+input);
+	for (let i = 0; i < input.length; i++)
+	{
+		addQuestion(input[i]);
+	}		
+}
+
 function removeQuestion(question)
 {
 	console.log(question);
@@ -27,7 +56,15 @@ function removeQuestion(question)
  
  function clickOutputBtn()
  {
+	JSONModel.displayInput(false);
 	JSONModel.displayOutput( !JSONModel.displayOutput() );
+	
+ }
+ 
+  function clickInputBtn()
+ {
+	JSONModel.displayOutput(false);
+	JSONModel.displayInput( !JSONModel.displayInput() );
  }
  
  function calculateOutput(format="html")
@@ -56,21 +93,22 @@ function removeQuestion(question)
  
   function getJSONRow(row)
   {
+	  console.log("row check: "+ row);
     return "{"
 	+ getQuotedText("japanese")
-	+":"+getQuotedText(JSONModel.questions()[row].kana())
+	+":"+getQuotedText(JSONModel.questions()[row].kana)
 	+","
 	+getQuotedText("kanji")
-	+":"+getQuotedText(JSONModel.questions()[row].kanji())
+	+":"+getQuotedText(JSONModel.questions()[row].kanji)
 	+","
 	+ getQuotedText("romanji")
-	+":"+getQuotedText(JSONModel.questions()[row].romanji())
+	+":"+getQuotedText(JSONModel.questions()[row].romanji)
 	+","
 	+getQuotedText("english")
-	+":"+getQuotedText(JSONModel.questions()[row].english())
+	+":"+getQuotedText(JSONModel.questions()[row].english)
 	+","
 	+getQuotedText("category")
-	+":"+getQuotedText(JSONModel.questions()[row].category())
+	+":"+getQuotedText(JSONModel.questions()[row].category)
 	+"}";
   };
   
