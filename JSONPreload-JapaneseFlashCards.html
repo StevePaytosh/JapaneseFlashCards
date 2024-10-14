@@ -48,38 +48,25 @@
       
     <div style="float:left; width:auto; display:table-cell;">
    
-      <div style="border-style:solid; border-width:2px; border-color:black;">
-  <p><input type="checkbox" value="Hiragana" data-bind="checked:QuestionViewModel.chkHiragana, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableHiragana()"/>Hiragana</p>
       
-      <p><input type="checkbox" value="HiraganaDakuten" data-bind="checked:QuestionViewModel.chkHiraganaDakuten, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableHiraganaDakuten()"/>Dakuten</p>
-      
-        <p><input type="checkbox" value="HiraganaHandakuten" data-bind="checked:QuestionViewModel.chkHiraganaHandakuten, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableHiraganaHandakuten"/>Handakuten</p> 
-      </div>
-       <div style="border-style:solid; border-width:2px; border-color:black;">
-      <p><input type="checkbox" value="Katakana" data-bind="checked:QuestionViewModel.chkKatakana, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableKatakana()"/>Katakana</p>
-         
-          <p><input type="checkbox" value="KatakanaDakuten" data-bind="checked:QuestionViewModel.chkKatakanaDakuten, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableKatakanaDakuten()"/>Dakuten</p>
-         
-           <p><input type="checkbox" value="KatakanaHandakuten" data-bind="checked:QuestionViewModel.chkKatakanaHandakuten, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableKatakanaHandakuten()"/>Handakuten</p> 
-      </div>
-      
-      <p><input type="checkbox" value="Kanji" data-bind="checked:QuestionViewModel.chkKanji, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableKanji()"/>Kanji</p>
-      <p><input type="checkbox" value="HiraganaNumbers" data-bind="checked:QuestionViewModel.chkHiraganaNumbers, event: { change: checkBoxChangePreloadedQuestion() }, enable:QuestionViewModel.EnableHiraganaNumbers()"/>Numbers (Hiragana)</p>
-      <p><input type="checkbox" value="Words" data-bind="checked:QuestionViewModel.chkWords, event: { change: checkBoxChangePreloadedQuestion() }, enable:false"/>Words</p>
-      <p><input type="checkbox" value="Phrases" data-bind="checked:QuestionViewModel.chkPhrases, event: { change: checkBoxChangePreloadedQuestion() }, enable:false"/>Phrases</p>
-   
-   </div>
-   <div style="margin-left:auto; display:table-cell;">
-      <p><input type="checkbox" value="Category" data-bind="checked:QuestionViewModel.chkCategory, event: { change: checkBoxChangeOptions() }"/>Show Category</p>
+        <p><input type="checkbox" value="Category" data-bind="checked:QuestionViewModel.chkCategory, event: { change: checkBoxChangeOptions() }"/>Show Category</p>
       <p><input type="checkbox" value="Romanji" data-bind="checked:QuestionViewModel.chkConjugate, event: { change: checkBoxChangeOptions() }"/>Show Romanji</p>
       <p><input type="checkbox" value="RepeatQuestions" data-bind="checked:QuestionViewModel.chkRepeatQuestions, event: { change: checkBoxChangeOptions() }"/>Repeat Question</p>
      <p><input type="checkbox" value="JapaneseToEnglish" data-bind="checked:QuestionViewModel.chkJapaneseToEnglish, event: { change: checkBoxChangeOptions() }, enable: true;"/>Japanese To English Questions</p>
         <p><input type="checkbox" value="RandomNumber" data-bind="checked:QuestionViewModel.chkRandomNumber, event: { change: toggleRandomNumber() }, enable: true;"/>Random Number</p>
-</div>
-	<div style="margin-left:auto; display:table-cell;" data-bind="foreach:QuestionViewModel.Categories">
-	 <p><input type="checkbox" value="name" data-bind="value:name, checked:selected, event: {change: checkBoxChangeOptions()}" /><span data-bind="text:name"/></p>
+	  
+	
+   
+   </div>
+   
+   
+	
+   <div style="margin-left:auto; display:table-cell;">
+   <div style="margin-left:auto; display:table-cell;" data-bind="foreach:QuestionViewModel.Categories">
+	 <p><input type="checkbox" value="name" data-bind="value:name, checked:selected, event: {change: checkBoxChangePreloadedQuestion}" /><span data-bind="text:name"/></p>
 	</div>
 
+	</div>
    </div>
   </div>
  </div>

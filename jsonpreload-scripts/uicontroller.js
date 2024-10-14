@@ -88,6 +88,7 @@ function setDefaultSettings()
 
 function checkBoxChangePreloadedQuestion()
 {
+	var category = this.name;
 	
     var currentQuestion = 
       {
@@ -99,9 +100,10 @@ function checkBoxChangePreloadedQuestion()
         questionState: QuestionViewModel.State()
       };
 	  
+	  //var currentQuestion = createQuestionModel(QuestionViewModel.CurrentQuestion());
     
 	//MapQuestions();  //VSC  
-	//LoadQuestions();
+	LoadQuestions();
 
     QuestionViewModel.question(currentQuestion.japanese);
     QuestionViewModel.answer(currentQuestion.english);
