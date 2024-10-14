@@ -1,8 +1,14 @@
 function LoadQuestions() //version specific 
 {
 	ClearQuestions();
-	loadJSONQuestions();
  
+	for (let i = 0; i < preloadedQuestions.length; i++) 
+	{
+		var question = createQuestionModel(preloadedQuestions[i]);
+		addQuestionJSON(question);
+		addCategory(question);
+	}
+	
 	EnableNextButton(QuestionViewModel.questions().length>0);
 	UpdateQuestionCounter()
 	
@@ -20,10 +26,6 @@ function GetSpecialQuestionType()
     {
      GetRandomQuestion(); //VSC
     }
-}
-
-function MapQuestions()
-{
 }
 
 function createQuestionModel(json)
