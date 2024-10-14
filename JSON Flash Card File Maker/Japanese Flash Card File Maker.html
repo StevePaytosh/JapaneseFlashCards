@@ -1,0 +1,57 @@
+<meta charset="utf-8">
+<head>
+<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	  <script type='text/javascript' src='knockout-3.5.1.js'></script>
+	  <script src="jquery-3.2.1.js"></script>	
+	  <script type="text/javascript" src="script.js" ></script>
+	  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<body>
+<div class="section">
+	<button data-bind='click: addQuestionRow'>Add Question</button>
+	<button data-bind='click: clickOutputBtn'>Show Output</button>
+</div>
+
+
+<div class="section">
+  <table data-bind='visible: JSONModel.questions().length > 0'>
+        <thead>
+            <tr>
+                <th>Japanese</th>
+                <th>Kanji</th>
+                <th>Romanji</th>
+                <th>English</th>
+				<th>Category</th>
+                <th />
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: JSONModel.questions()'>
+            <tr>
+                <td><input class="required" data-bind="value:kana" /></td>
+                <td><input class='required' data-bind='value:kanji' /></td>
+                <td><input  data-bind='value: romanji' /></td>
+                <td><input class='required' data-bind='value: english' /></td>
+				<td><input class='required' data-bind='value: category' /></td>
+                <td><a href='#' data-bind='click: removeQuestion'>Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+  <p>
+
+<div class="section">
+	<div data-bind="visible:JSONModel.displayOutput" style="width: auto; display:inline-block;">
+		<h2>Output</h2>
+		<button data-bind="click: copyText">Copy Text</button>
+		<button data-bind="click: clickSaveFileBtn">Save File</button>
+		<div style="border-color:black; border-style:solid; border-width:1px;">
+			<textbox data-bind='html: JSONModel.output' />
+		</div>
+	</div> 
+</div>
+</body>
