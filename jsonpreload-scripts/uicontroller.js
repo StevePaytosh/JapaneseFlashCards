@@ -102,8 +102,11 @@ function checkBoxChangePreloadedQuestion()
 	  
 	  //var currentQuestion = createQuestionModel(QuestionViewModel.CurrentQuestion());
     
+	var filter = getCategories();
+	console.log("filter"+filter);
 	//MapQuestions();  //VSC  
-	LoadQuestions();
+	LoadFilteredQuestions(filter);
+	//LoadQuestions();
 
     QuestionViewModel.question(currentQuestion.japanese);
     QuestionViewModel.answer(currentQuestion.english);
@@ -114,6 +117,21 @@ function checkBoxChangePreloadedQuestion()
   
     checkBoxChangeDisplay();
     
+}
+
+function getCategories()
+{
+	var result = [];
+	
+	for(let i =0; i<QuestionViewModel.Categories().length; i++)
+	{
+		if(isCategorySelected(i))
+		{
+			result.push(categoryName(i));
+		}
+	}
+	
+	return result;
 }
 
 function toggleRandomNumber()

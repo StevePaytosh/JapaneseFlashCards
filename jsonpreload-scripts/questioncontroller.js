@@ -1,5 +1,6 @@
 function LoadQuestions() //version specific 
 {
+	console.log("load questions");
 	ClearQuestions();
  
 	for (let i = 0; i < preloadedQuestions.length; i++) 
@@ -9,10 +10,30 @@ function LoadQuestions() //version specific
 		addCategory(question);
 	}
 	
-	EnableNextButton(QuestionViewModel.questions().length>0);
-	UpdateQuestionCounter()
+	EnableNextButton(QuestionViewModel.questions().length>0); //ui functions
+	UpdateQuestionCounter() //ui functions
 	
-};
+}
+
+
+function LoadFilteredQuestions(filter)
+{
+	ClearQuestions();
+	
+	 for (let i = 0; i < preloadedQuestions.length; i++) 
+	{
+		if(filter.length > 0 && filter.includes(preloadedQuestions[i].category) )
+		{
+			var question = createQuestionModel(preloadedQuestions[i]);
+			addQuestionJSON(question);
+			addCategory(question);
+		}
+	}
+	
+	EnableNextButton(QuestionViewModel.questions().length>0); //ui functions
+	UpdateQuestionCounter() //ui functions
+}
+
 
 function ShouldGetSpecialQuestionType()
 {
@@ -61,6 +82,16 @@ function addCategory(question, isSelected = false)
 		QuestionViewModel.Categories.push(category);
 		
 	}
+}
+
+function isCategorySelected(category)
+{
+	return QuestionViewModel.Categories()[category].selected;
+}
+
+function categoryName(category)
+{
+	return QuestionViewModel.Categories()[category].name;
 }
 
 function checkIfCategoryExists(categoryName) {
