@@ -5,6 +5,7 @@ var JSONModel = function()
   JSONModel.displayOutput = ko.observable(false);
   JSONModel.displayInput = ko.observable(false);
   JSONModel.JSONInput = ko.observable("");
+  JSONModel.PSVInput = ko.observable("");
   
 }
 
@@ -47,6 +48,41 @@ function addJSON()
 		addQuestion(input[i]);
 	}		
 }
+
+function addPSV()
+{
+	JSONModel.questions([]);
+	
+//	for (let i = 0; i < input.length; i++)
+//	{
+//		addQuestion(input[i]);
+//	}		
+	
+
+		//doc[i]=doc[i].trim();
+		//var a = psvInput[i].trim();
+		var args=JSONModel.PSVInput().split("|");
+    
+		//addQuestion(args[0],args[2],args[3],args[4]);
+		
+		for(let i=0; i<args.length; i++)
+		{
+			var question=
+			{
+				kana: args[i++],
+				kanji:args[i++],
+				romanji: args[i++],
+				english: args[i++],
+				category: args[i++]
+			};
+		
+			JSONModel.questions.push(question);
+		}
+		//add some validation please
+		//QuestionViewModel.externalQuestions.push(question);
+	
+}
+
 
 function removeQuestion(question)
 {
