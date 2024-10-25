@@ -65,18 +65,36 @@ function addPSV()
     
 		//addQuestion(args[0],args[2],args[3],args[4]);
 		
-		for(let i=0; i<args.length; i++)
+		//for(let i=0; i<args.length; i++)
+		let i = 0;
+	     while(i<args.length)
 		{
+			var kana = args[i++];
+			var kanji = args[i++];
+			var romanji = args[i++];
+			var english = args[i++];
+			var category = args[i++];
+
+/*
+			if(category.includes('\n') )
+			{
+				var nlArg = args[i].split("\n");
+				category = nlArg[0];
+				args[i]=nlArg[1];
+			}
+			*/
 			var question=
 			{
-				kana: args[i++],
-				kanji:args[i++],
-				romanji: args[i++],
-				english: args[i++],
-				category: args[i++]
+				kana: kana,
+				kanji:kanji,
+				romanji: romanji,
+				english: english,
+				category: category
 			};
 		
 			JSONModel.questions.push(question);
+			
+
 		}
 		//add some validation please
 		//QuestionViewModel.externalQuestions.push(question);
