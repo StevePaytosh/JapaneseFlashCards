@@ -1,6 +1,5 @@
 function LoadQuestions() //version specific 
 {
-	console.log("load questions");
 	ClearQuestions();
  
 	for (let i = 0; i < preloadedQuestions.length; i++) 
@@ -15,6 +14,48 @@ function LoadQuestions() //version specific
 	
 }
 
+function run_json_file(doc,start,end) //io
+{
+		var json='';
+	for (var i =start;i<end;i++)
+	{
+		json+=doc[i];
+	}
+	
+	return JSON.parse(json);
+}
+
+function get_json_file(filename) //io
+{
+	var output;
+	var fileInput = document.getElementById('inputfile');
+		//var fileDisplayArea = document.getElementById('out');
+
+
+		//fileInput.addEventListener('change', function(e) {
+			var file = fileInput.files[0];
+			//var textType = /text.*/;
+			//var textType = /.*/
+
+			//if (file.type.match(textType)) {
+				var reader = new FileReader();
+
+			//	reader.onload = function(e) {
+					 //doc=reader.result.split('\n');
+		//			 output = reader.readAsText(filename);
+ 					
+			//	}
+
+				return reader.readAsText(file);	
+				//AllowFileLoad();
+			//} else {
+				//DisableFileLoad();
+				//fileDisplayArea.innerText = "File not supported!"
+			//}
+		//}
+		//);
+	
+}
 
 function LoadFilteredQuestions(filter)
 {
