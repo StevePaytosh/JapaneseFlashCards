@@ -53,46 +53,27 @@ function addPSV()
 {
 	JSONModel.questions([]);
 	
-//	for (let i = 0; i < input.length; i++)
-//	{
-//		addQuestion(input[i]);
-//	}		
-	
-
-		//doc[i]=doc[i].trim();
-		//var a = psvInput[i].trim();
 		var args=JSONModel.PSVInput().split("|");
-    
-		//addQuestion(args[0],args[2],args[3],args[4]);
-		
-		//for(let i=0; i<args.length; i++)
+
 		let i = 0;
-	     while(i<args.length)
+			 while(i< args.length)
 		{
+			
+			//var args = rows[i].split('|');
 			var kana = args[i++];
 			var kanji = args[i++];
 			var romanji = args[i++];
 			var english = args[i++];
 			var category = args[i++];
-
-/*
-			if(category.includes('\n') )
+			
+			JSONModel.questions.push(
 			{
-				var nlArg = args[i].split("\n");
-				category = nlArg[0];
-				args[i]=nlArg[1];
-			}
-			*/
-			var question=
-			{
-				kana: kana,
-				kanji:kanji,
-				romanji: romanji,
-				english: english,
-				category: category
-			};
-		
-			JSONModel.questions.push(question);
+				kana: ko.observable(kana),
+				kanji: ko.observable(kanji),
+				romanji: ko.observable(romanji),
+				english: ko.observable(english),
+				category: ko.observable(category)
+			});
 			
 
 		}
@@ -150,19 +131,19 @@ function removeQuestion(question)
 	  console.log("row check: "+ row);
     return "{"
 	+ getQuotedText("japanese")
-	+":"+getQuotedText(JSONModel.questions()[row].kana)
+	+":"+getQuotedText(JSONModel.questions()[row].kana())
 	+","
 	+getQuotedText("kanji")
-	+":"+getQuotedText(JSONModel.questions()[row].kanji)
+	+":"+getQuotedText(JSONModel.questions()[row].kanji())
 	+","
 	+ getQuotedText("romanji")
-	+":"+getQuotedText(JSONModel.questions()[row].romanji)
+	+":"+getQuotedText(JSONModel.questions()[row].romanji())
 	+","
 	+getQuotedText("english")
-	+":"+getQuotedText(JSONModel.questions()[row].english)
+	+":"+getQuotedText(JSONModel.questions()[row].english())
 	+","
 	+getQuotedText("category")
-	+":"+getQuotedText(JSONModel.questions()[row].category)
+	+":"+getQuotedText(JSONModel.questions()[row].category())
 	+"}";
   };
   
