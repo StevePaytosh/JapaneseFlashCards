@@ -26,23 +26,22 @@ function addQuestion(json)
 {
 	JSONModel.displayInput(false);
 	
-	JSONModel.questions.push(
-		{
-			kana: json.japanese,
-			kanji: json.kanji,
-			romanji: json.romanji,
-			english: json.english,
-			category: json.category
-		}
-	); 	
+	data = 
+	{
+		kana: ko.observable(json.japanese),
+			kanji: ko.observable(json.kanji),
+			romanji: ko.observable(json.romanji),
+			english: ko.observable(json.english),
+			category: ko.observable(json.category)
+	};
+	
+	JSONModel.questions.push(data);
 }
 
 function addJSON()
 {
-	JSONModel.questions([]);
 	
 	var input = JSON.parse(JSONModel.JSONInput());
-	console.log("Input: "+input);
 	for (let i = 0; i < input.length; i++)
 	{
 		addQuestion(input[i]);
@@ -51,15 +50,13 @@ function addJSON()
 
 function addPSV()
 {
-	JSONModel.questions([]);
-	
+
 		var args=JSONModel.PSVInput().split("|");
 
 		let i = 0;
 			 while(i< args.length)
 		{
 			
-			//var args = rows[i].split('|');
 			var kana = args[i++];
 			var kanji = args[i++];
 			var romanji = args[i++];
@@ -78,8 +75,6 @@ function addPSV()
 
 		}
 		//add some validation please
-		//QuestionViewModel.externalQuestions.push(question);
-	
 }
 
 
@@ -123,7 +118,7 @@ function removeQuestion(question)
 				
 			}
           }
-      return rowResult;
+      return `[${rowResult}]`;
  }
  
   function getJSONRow(row)
@@ -164,10 +159,13 @@ function clickSaveFileBtn()
 {
 	var outputText = calculateOutput("newline");
 	var filename = "";
-	if(JSONModel.category() != "")
-	{
-		fileName = JSONModel.category()+".txt";
-	}
+	//if(JSONModel.category() != "")
+	//if(JSONModel.category() != undefined)
+	//{
+		var date = new Date();
+		//fileName = JSONModel.category()+".txt";
+		fileName = `${date}-${JSONModel.questions()[0].category()}.txt`;
+	//}
 	download(fileName,outputText);
    
 }
