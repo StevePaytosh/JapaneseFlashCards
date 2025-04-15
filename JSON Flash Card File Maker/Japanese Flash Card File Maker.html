@@ -11,12 +11,21 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 <body>
+<div>
+<input data-bind="value: JSONModel.BulkAddNumber" type="number">
+<button data-bind='click: addBulkQuestions'>Add Questions</button>
+<button data-bind='click: clearRows'>Clear Rows</button>
+</div>
 <div class="section">
 	<button data-bind='click: addQuestionRow'>Add Question</button>
 	<button data-bind='click: clickOutputBtn'>Show Output</button>
 	<button data-bind='click: clickInputBtn'>Show Input</button>
 </div>
 
+<div class="section">
+	<h2>Category</h2>
+	<input type="text" data-bind="value:JSONModel.category"/>
+</div>
 
 <div class="section">
   <table data-bind='visible: JSONModel.questions().length > 0'>

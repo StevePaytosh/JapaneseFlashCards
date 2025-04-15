@@ -6,7 +6,28 @@ var JSONModel = function()
   JSONModel.displayInput = ko.observable(false);
   JSONModel.JSONInput = ko.observable("");
   JSONModel.PSVInput = ko.observable("");
+  JSONModel.BulkAddNumber = ko.observable();
+  JSONModel.category = ko.observable("");  
   
+}
+
+function addBulkQuestions()
+{
+	var i = JSONModel.BulkAddNumber();
+	
+	for(var j=0; j< i; j++)
+	{
+		addQuestionRow();
+	}
+}
+
+function clearRows()
+{
+	JSONModel.questions.removeAll();
+	//for (let i=0; i < JSONModel.questions().length; i++)
+	//{
+		//JSONModel.questions.remove(JSONModel.questions()[i]);
+	//}	
 }
 
 function addQuestionRow()
@@ -65,11 +86,11 @@ function addPSV()
 			
 			JSONModel.questions.push(
 			{
-				kana: ko.observable(kana),
-				kanji: ko.observable(kanji),
-				romanji: ko.observable(romanji),
-				english: ko.observable(english),
-				category: ko.observable(category)
+				kana: ko.observable(kana).trim(),
+				kanji: ko.observable(kanji).trim(),
+				romanji: ko.observable(romanji).trim(),
+				english: ko.observable(english).trim(),
+				category: ko.observable(category).trim()
 			});
 			
 
@@ -138,13 +159,25 @@ function removeQuestion(question)
 	+":"+getQuotedText(JSONModel.questions()[row].english())
 	+","
 	+getQuotedText("category")
-	+":"+getQuotedText(JSONModel.questions()[row].category())
+	+":"+getCategory(row)
 	+"}";
   };
   
+  function getCategory(row)
+  {
+	  if(JSONModel.questions()[row].category() === '')
+	  {
+		   return getQuotedText(JSONModel.category());
+	  }
+	  else
+	  {
+		  return getQuotedText(JSONModel.questions()[row].category());
+	  }
+  }
+  
   function getQuotedText(input)
   {
-	  var result = "\""+input+"\""
+	  var result = "\""+input.trim()+"\""
 	  return result;
   }
  
