@@ -33,6 +33,7 @@ var QuestionViewModel = function()
 	QuestionViewModel.EnableWords = ko.observable(false);
 	QuestionViewModel.EnablePhrases = ko.observable(false);
 	QuestionViewModel.EnableNextButton = ko.observable(false);
+	QuestionViewModel.EnableFileLoadedQuestions = ko.observable(false);
 	
 	QuestionViewModel.chkHiragana = ko.observable(false);
 	QuestionViewModel.chkHiraganaDakuten = ko.observable(false);
@@ -279,6 +280,7 @@ function SetInitializationView()
 	QuestionViewModel.answer("");
 	QuestionViewModel.conjugate("");
 	QuestionViewModel.EnableNextButton(false);
+	QuestionViewModel.EnableFileLoadedQuestions(false);
 }
 
 function SetFileLoadedView()
@@ -294,10 +296,12 @@ function SetFileLoadedView()
 
 function AllowFileLoad()
 {
+	QuestionViewModel.EnableFileLoadedQuestions(true);
 }
 
 function DisableFileLoad()
-{	
+{
+	QuestionViewModel.EnableFileLoadedQuestions(false);	
 }
 
 function EnableNextButton(val)

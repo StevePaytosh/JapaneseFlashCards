@@ -6,6 +6,7 @@
 	  <script type='text/javascript' src='dependencies/knockout-3.5.1.js'></script>
 	  <script src="dependencies/jquery-3.2.1.js"></script>	
 	  <script type="text/javascript" src="base-script.js" ></script>
+	  <script type="text/javascript" src="io.js" ></script>
 	  <script type="text/javascript" src="jsonpreload-scripts/preloadedquestions.js" ></script>
       <script type="text/javascript" src="base-uicontroller.js" ></script>
 	  <script type="text/javascript" src="base-questioncontroller.js" ></script>
@@ -48,18 +49,15 @@
       <h1>Options </h1>
       
     <div style="float:left; width:auto; display:table-cell;">
-   
-      
         <p><input type="checkbox" value="Category" data-bind="checked:QuestionViewModel.chkCategory, event: { change: checkBoxChangeOptions() }"/>Show Category</p>
       <p><input type="checkbox" value="Romanji" data-bind="checked:QuestionViewModel.chkConjugate, event: { change: checkBoxChangeOptions() }"/>Show Romanji</p>
       <p><input type="checkbox" value="RepeatQuestions" data-bind="checked:QuestionViewModel.chkRepeatQuestions, event: { change: checkBoxChangeOptions() }"/>Repeat Question</p>
      <p><input type="checkbox" value="JapaneseToEnglish" data-bind="checked:QuestionViewModel.chkJapaneseToEnglish, event: { change: checkBoxChangeOptions() }, enable: true;"/>Japanese To English Questions</p>
         <p><input type="checkbox" value="RandomNumber" data-bind="checked:QuestionViewModel.chkRandomNumber, event: { change: toggleRandomNumber() }, enable: true;"/>Random Number</p>
-	  
-	
-   
    </div>
-   
+		<input type="file" id="fileInput" name="files[]"  /> <p>
+		<button id="run" data-bind="click:processFile, visible: true, enable: QuestionViewModel.EnableFileLoadedQuestions()">Load JSON File</button><br> 
+	</div>
    
 	
    <div style="margin-left:auto; display:table-cell;">

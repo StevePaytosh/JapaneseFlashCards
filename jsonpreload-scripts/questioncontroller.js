@@ -14,6 +14,11 @@ function LoadQuestions() //version specific
 	
 }
 
+function AddJSONToPreloadedQuestions(question)
+{
+	preloadedQuestions.push(question);
+	addCategory(question);	
+}
 function run_json_file(doc,start,end) //io
 {
 		var json='';
@@ -29,32 +34,9 @@ function get_json_file(filename) //io
 {
 	var output;
 	var fileInput = document.getElementById('inputfile');
-		//var fileDisplayArea = document.getElementById('out');
-
-
-		//fileInput.addEventListener('change', function(e) {
-			var file = fileInput.files[0];
-			//var textType = /text.*/;
-			//var textType = /.*/
-
-			//if (file.type.match(textType)) {
-				var reader = new FileReader();
-
-			//	reader.onload = function(e) {
-					 //doc=reader.result.split('\n');
-		//			 output = reader.readAsText(filename);
- 					
-			//	}
-
-				return reader.readAsText(file);	
-				//AllowFileLoad();
-			//} else {
-				//DisableFileLoad();
-				//fileDisplayArea.innerText = "File not supported!"
-			//}
-		//}
-		//);
-	
+	var file = fileInput.files[0];
+	var reader = new FileReader();
+	return reader.readAsText(file);	
 }
 
 function LoadFilteredQuestions(filter)
@@ -67,7 +49,7 @@ function LoadFilteredQuestions(filter)
 		{
 			var question = createQuestionModel(preloadedQuestions[i]);
 			addQuestionJSON(question);
-			addCategory(question);
+			//addCategory(question);
 		}
 	}
 	
@@ -105,9 +87,7 @@ function createQuestionModel(json)
 
 function addQuestionJSON(question)
 {
-  
 	QuestionViewModel.questions.push(question);
-	
 }
 
 function addCategory(question, isSelected = false)
@@ -141,4 +121,13 @@ function checkIfCategoryExists(categoryName) {
     });
 	
 	return match !== undefined;
+}
+
+function MapQuestions()
+{
+	var input = QuestionViewModel.externalQuestions()[0];
+	for (let i = 0; i < input.length; i++)
+	{
+		AddJSONToPreloadedQuestions(input[i]);
+	}
 }
