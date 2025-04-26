@@ -19,6 +19,8 @@ var QuestionViewModel = function()
 	QuestionViewModel.questions = ko.observableArray();
 	QuestionViewModel.removedQuestions = ko.observableArray();
 	QuestionViewModel.externalQuestions = ko.observableArray();
+	QuestionViewModel.Categories = ko.observableArray();
+	QuestionViewModel.CurrentQuestion = ko.observable();
   
 	QuestionViewModel.EnableHiragana = ko.observable(true);
 	QuestionViewModel.EnableHiraganaDakuten = ko.observable(true);
@@ -31,7 +33,8 @@ var QuestionViewModel = function()
 	QuestionViewModel.EnableWords = ko.observable(false);
 	QuestionViewModel.EnablePhrases = ko.observable(false);
 	QuestionViewModel.EnableNextButton = ko.observable(false);
-
+	QuestionViewModel.EnableFileLoadedQuestions = ko.observable(false);
+	
 	QuestionViewModel.chkHiragana = ko.observable(false);
 	QuestionViewModel.chkHiraganaDakuten = ko.observable(false);
 	QuestionViewModel.chkHiraganaHandakuten = ko.observable(false);
@@ -80,11 +83,14 @@ function setDefaultSettings()
 
 	QuestionViewModel.chkHiragana(true);
 	QuestionViewModel.chkiraganaNumbers(true);
+	LoadQuestions();
 }
 
 
 function checkBoxChangePreloadedQuestion()
 {
+	var category = this.name;
+	
     var currentQuestion = 
       {
         japanese: QuestionViewModel.question(),
@@ -94,9 +100,14 @@ function checkBoxChangePreloadedQuestion()
         showAnswer: QuestionViewModel.DisplayAnswer(),
         questionState: QuestionViewModel.State()
       };
+	  
+	  //var currentQuestion = createQuestionModel(QuestionViewModel.CurrentQuestion());
     
+	var filter = getCategories();
+	console.log("filter"+filter);
 	//MapQuestions();  //VSC  
-	LoadQuestions();
+	LoadFilteredQuestions(filter);
+	//LoadQuestions();
 
     QuestionViewModel.question(currentQuestion.japanese);
     QuestionViewModel.answer(currentQuestion.english);
@@ -107,6 +118,21 @@ function checkBoxChangePreloadedQuestion()
   
     checkBoxChangeDisplay();
     
+}
+
+function getCategories()
+{
+	var result = [];
+	
+	for(let i =0; i<QuestionViewModel.Categories().length; i++)
+	{
+		if(isCategorySelected(i))
+		{
+			result.push(categoryName(i));
+		}
+	}
+	
+	return result;
 }
 
 function toggleRandomNumber()
@@ -254,6 +280,7 @@ function SetInitializationView()
 	QuestionViewModel.answer("");
 	QuestionViewModel.conjugate("");
 	QuestionViewModel.EnableNextButton(false);
+	QuestionViewModel.EnableFileLoadedQuestions(false);
 }
 
 function SetFileLoadedView()
@@ -269,10 +296,12 @@ function SetFileLoadedView()
 
 function AllowFileLoad()
 {
+	QuestionViewModel.EnableFileLoadedQuestions(true);
 }
 
 function DisableFileLoad()
-{	
+{
+	QuestionViewModel.EnableFileLoadedQuestions(false);	
 }
 
 function EnableNextButton(val)

@@ -1,22 +1,62 @@
 function LoadQuestions() //version specific 
 {
 	ClearQuestions();
+ 
+	for (let i = 0; i < preloadedQuestions.length; i++) 
+	{
+		var question = createQuestionModel(preloadedQuestions[i]);
+		addQuestionJSON(question);
+		addCategory(question);
+	}
 	
-    if(QuestionViewModel.chkHiraganaNumbers()) {addNumbers();}
-    if(QuestionViewModel.chkHiragana()){ addHiragana();}
-    if(QuestionViewModel.chkHiraganaDakuten()){ addHiraganaDakuten();}
-    if(QuestionViewModel.chkHiraganaHandakuten()){ addHiraganaHandakuten();}
-    if(QuestionViewModel.chkKatakana()){ addKatakana();}
-    if(QuestionViewModel.chkKatakanaDakuten()){ addKatakanaDakuten();}
-    if(QuestionViewModel.chkKatakanaHandakuten()){ addKatakanaHandakuten();}
-    if(QuestionViewModel.chkKanji()){addKanji();}
-    if(QuestionViewModel.chkWords()){addWords();}
-    if(QuestionViewModel.chkPhrases()){addPhrases();}
+	EnableNextButton(QuestionViewModel.questions().length>0); //ui functions
+	UpdateQuestionCounter() //ui functions
 	
-	EnableNextButton(QuestionViewModel.questions().length>0);
-	UpdateQuestionCounter()
+}
+
+function AddJSONToPreloadedQuestions(question)
+{
+	preloadedQuestions.push(question);
+	addCategory(question);	
+}
+function run_json_file(doc,start,end) //io
+{
+		var json='';
+	for (var i =start;i<end;i++)
+	{
+		json+=doc[i];
+	}
 	
-};
+	return JSON.parse(json);
+}
+
+function get_json_file(filename) //io
+{
+	var output;
+	var fileInput = document.getElementById('inputfile');
+	var file = fileInput.files[0];
+	var reader = new FileReader();
+	return reader.readAsText(file);	
+}
+
+function LoadFilteredQuestions(filter)
+{
+	ClearQuestions();
+	
+	 for (let i = 0; i < preloadedQuestions.length; i++) 
+	{
+		if(filter.length > 0 && filter.includes(preloadedQuestions[i].category) )
+		{
+			var question = createQuestionModel(preloadedQuestions[i]);
+			addQuestionJSON(question);
+			//addCategory(question);
+		}
+	}
+	
+	EnableNextButton(QuestionViewModel.questions().length>0); //ui functions
+	UpdateQuestionCounter() //ui functions
+}
+
 
 function ShouldGetSpecialQuestionType()
 {
@@ -32,6 +72,62 @@ function GetSpecialQuestionType()
     }
 }
 
+function createQuestionModel(json)
+{
+	var question=
+	{
+	japanese: json.japanese,
+	romanji: json.romanji,
+	english: json.english,
+	category: json.category
+	};
+	
+	return question;
+}
+
+function addQuestionJSON(question)
+{
+	QuestionViewModel.questions.push(question);
+}
+
+function addCategory(question, isSelected = false)
+{
+	if(!checkIfCategoryExists(question.category) )
+	{
+		var category=
+		{
+			name: question.category,
+			selected: isSelected
+		};
+		
+		QuestionViewModel.Categories.push(category);
+		
+	}
+}
+
+function isCategorySelected(category)
+{
+	return QuestionViewModel.Categories()[category].selected;
+}
+
+function categoryName(category)
+{
+	return QuestionViewModel.Categories()[category].name;
+}
+
+function checkIfCategoryExists(categoryName) {
+    var match = ko.utils.arrayFirst(QuestionViewModel.Categories(), function(item) {
+        return item.name === categoryName;
+    });
+	
+	return match !== undefined;
+}
+
 function MapQuestions()
 {
+	var input = QuestionViewModel.externalQuestions()[0];
+	for (let i = 0; i < input.length; i++)
+	{
+		AddJSONToPreloadedQuestions(input[i]);
+	}
 }
