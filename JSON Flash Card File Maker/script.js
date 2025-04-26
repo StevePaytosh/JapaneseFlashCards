@@ -24,10 +24,6 @@ function addBulkQuestions()
 function clearRows()
 {
 	JSONModel.questions.removeAll();
-	//for (let i=0; i < JSONModel.questions().length; i++)
-	//{
-		//JSONModel.questions.remove(JSONModel.questions()[i]);
-	//}	
 }
 
 function addQuestionRow()
@@ -192,13 +188,18 @@ function clickSaveFileBtn()
 {
 	var outputText = calculateOutput("newline");
 	var filename = "";
-	//if(JSONModel.category() != "")
-	//if(JSONModel.category() != undefined)
-	//{
-		var date = new Date();
-		//fileName = JSONModel.category()+".txt";
-		fileName = `${date}-${JSONModel.questions()[0].category()}.txt`;
-	//}
+
+		var category = '';
+		if(JSONModel.questions()[0].category() != "")
+		{
+			category = JSONModel.questions()[0].category();
+		}
+		else
+		{
+			category = JSONModel.category();
+		}
+		
+		fileName = `${category}.txt`;
 	download(fileName,outputText);
    
 }
