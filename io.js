@@ -33,12 +33,15 @@ function run_file(doc,start, end)
 		json+=doc[i];
 	}
 	
-	QuestionViewModel.externalQuestions.push(JSON.parse(json));
+	var listJson = JSON.parse(json);
+	for(var i = 0; i<listJson.length ; i++)
+	{
+		QuestionViewModel.externalQuestions.push(listJson[i]);
+	}
 
 }
 
  window.onload = function() {
-		
 		var fileInput = document.getElementById('fileInput');
 		var fileDisplayArea = document.getElementById('out');
 
@@ -67,5 +70,11 @@ function processFile()
 {
 	run_file(doc,0,doc.length);
 	MapQuestions();
+	ClearDoc();
 };
+
+function ClearDoc()
+{
+	doc = '';
+}
 

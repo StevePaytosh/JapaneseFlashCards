@@ -49,7 +49,6 @@ function LoadFilteredQuestions(filter)
 		{
 			var question = createQuestionModel(preloadedQuestions[i]);
 			addQuestionJSON(question);
-			//addCategory(question);
 		}
 	}
 	
@@ -125,9 +124,8 @@ function checkIfCategoryExists(categoryName) {
 
 function MapQuestions()
 {
-	var input = QuestionViewModel.externalQuestions()[0];
-	for (let i = 0; i < input.length; i++)
+	for (let i = 0; i < QuestionViewModel.externalQuestions().length; i++)
 	{
-		AddJSONToPreloadedQuestions(input[i]);
+		AddJSONToPreloadedQuestions(QuestionViewModel.externalQuestions()[i]);
 	}
 }
