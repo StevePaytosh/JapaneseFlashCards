@@ -1,0 +1,5 @@
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@7d4bf1a06e84e2ac1a8ad114c18f54513030d493/Flash%20Card%20File%20Maker/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/StevePaytosh/JapaneseFlashCards@7d4bf1a06e84e2ac1a8ad114c18f54513030d493/Flash%20Card%20File%20Maker/script.js"></script>
